@@ -27,7 +27,7 @@ Opcional, mas recomendado:
 - PHP-cli
 - [Composer](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-ubuntu-20-04)
 
-Meu setup usa uma máquina local Ubuntu 18.04 rodando Docker e Docker Compose, mas também com um ambiente básico PHP na linha de comando para rodar comandos do (PHP) Composer.
+Se necesita una máquina local Ubuntu 18.04 corriendo Docker & Docker Compose, con un ambiente básico PHP de linea de comando para correr (PHP) Composer.
 
 ### Instalacion:
 
