@@ -22,4 +22,10 @@ Route::get('/home', function() {
 
 Auth::routes();
 
+
+Route::resource('users','UserController');
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('datatable/users','UserController@anyUsers')->name('datatable.users');
+
+

@@ -38,6 +38,7 @@
 
     {{-- Custom Stylesheets (post AdminLTE) --}}
     @yield('adminlte_css')
+    <!-- Bootstrap CSS -->
 
     {{-- Favicon --}}
     @if(config('adminlte.use_ico_only'))

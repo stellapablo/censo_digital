@@ -16,8 +16,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','creado_el'
     ];
+
+    //protected $dateFormat = 'd/m/yy H:i:s';
 
     /**
      * The attributes that should be hidden for arrays.
@@ -34,6 +36,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
+        'created_at' => 'date_format:d/m/yyyy H:i:s',
         'email_verified_at' => 'datetime',
     ];
 }

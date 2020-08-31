@@ -47,9 +47,9 @@ return [
 
     'logo' => 'Censo Municipal',
     'logo_img' => 'vendor/adminlte/dist/img/logo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo_img_class' => 'brand-image elevation-2',
     'logo_img_xl' => null,
-    'logo_img_xl_class' => 'brand-image-md',
+    'logo_img_xl_class' => 'brand-image',
     'logo_img_alt' => 'AdminLTE',
 
     /*
@@ -233,34 +233,42 @@ return [
     'menu' => [
         [
             'text' => 'search',
-            'search' => true,
-            'topnav' => true,
+            'search' => false,
+            'topnav' => false,
         ],
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
+            'text'        => 'Empleados',
+            'url'         => 'empleados',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
         [
-            'text' => 'profile',
+            'text'        => 'Usuarios',
+            'url'         => 'users',
+            'icon'        => 'far fa-fw fa-file',
+            'label'       => 2,
+            'label_color' => 'success',
+        ],
+        ['header' => 'SETTINGS '],
+        [
+            'text' => 'Perfil',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
+            'text' => 'Cambiar password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+
         [
-            'text'    => 'multilevel',
+            'text'    => 'Empleados',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
@@ -351,21 +359,21 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
                 ],
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
                 ],
                 [
-                    'type' => 'css',
-                    'asset' => false,
+                    'type' => 'true',
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
                 ],
             ],
