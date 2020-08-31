@@ -1,5 +1,4 @@
-#  <img src="/src/ciudad-digital-blanco.png" width="150">
-![](/src/ciudad-digital-blanco.png)
+#  <img src="/src/logo.png" width="150">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
