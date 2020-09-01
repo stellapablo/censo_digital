@@ -26,6 +26,23 @@ Auth::routes();
 Route::resource('users','UserController');
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::prefix('empleados')->group(function () {
+    Route::get('biometria', 'EmpleadosController@step1')->name('biometria');
+    Route::get('salud', 'EmpleadosController@salud')->name('salud');
+    Route::get('personal', 'EmpleadosController@personal')->name('personal');
+    Route::get('cargo', 'EmpleadosController@cargo')->name('cargo');
+    Route::get('formacion', 'EmpleadosController@formacion')->name('formacion');
+
+
+    Route::post('salud', 'EmpleadosController@ssalud')->name('empleados.ssalud');
+    Route::post('personal', 'EmpleadosController@spersonal')->name('empleados.spersonal');
+
+
+
+
+});
+
+
 Route::get('datatable/users','UserController@anyUsers')->name('datatable.users');
 
 

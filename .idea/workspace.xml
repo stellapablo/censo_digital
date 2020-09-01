@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0437dfa9-2969-4297-8abe-dc2b245d5a8a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/empleados/personales.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/empleados/revista.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/empleados/salud.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/empleados/step.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/empleados/step1.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/censo_digital.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/censo_digital.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/adminlte.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/adminlte.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/adminlte/master.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
@@ -150,6 +151,7 @@
       <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
       <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
       <path value="$PROJECT_DIR$/vendor/yajra/laravel-datatables-oracle" />
+      <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
     </include_path>
   </component>
   <component name="ProjectId" id="1grhjSjod4h2LnUoRlpHBOrCyWc" />
@@ -160,12 +162,17 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/empleados" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/empleados" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -181,7 +188,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1598878755399</updated>
-      <workItem from="1598878756945" duration="7947000" />
+      <workItem from="1598878756945" duration="21941000" />
     </task>
     <servers />
   </component>
@@ -189,9 +196,13 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="624" y="241" key="run.anything.popup" timestamp="1598883381515">
+    <state x="743" y="283" width="424" height="479" key="FileChooserDialogImpl" timestamp="1598959924679">
       <screen x="0" y="0" width="1920" height="1052" />
     </state>
-    <state x="624" y="241" key="run.anything.popup/0.0.1920.1052/1920.0.1920.1080@0.0.1920.1052" timestamp="1598883381515" />
+    <state x="743" y="283" width="424" height="479" key="FileChooserDialogImpl/0.0.1920.1052/1920.0.1920.1080@0.0.1920.1052" timestamp="1598959924679" />
+    <state x="624" y="241" key="run.anything.popup" timestamp="1598967096287">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="624" y="241" key="run.anything.popup/0.0.1920.1052/1920.0.1920.1080@0.0.1920.1052" timestamp="1598967096287" />
   </component>
 </project>
