@@ -14,7 +14,7 @@ class CreateDatosPersonalesTable extends Migration
     public function up()
     {
         Schema::create('datos_personales', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->string('empleado_id')->index()->nullable();
             $table->string('fecha_nac');
             $table->string('estado_civil');

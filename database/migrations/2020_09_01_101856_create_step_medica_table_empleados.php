@@ -14,7 +14,7 @@ class CreateStepMedicaTableEmpleados extends Migration
     public function up()
     {
         Schema::create('salud', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->string('empleado_id')->index()->nullable();
             $table->string('frecuencia_cardiaca');
             $table->string('frecuencia_respiratoria');

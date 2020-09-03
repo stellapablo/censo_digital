@@ -2,24 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0437dfa9-2969-4297-8abe-dc2b245d5a8a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/empleados/personales.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/empleados/revista.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/empleados/salud.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/empleados/step.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/empleados/step1.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/censo_digital.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/censo_digital.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/empleados/biometrico.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/adminlte.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/adminlte.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/adminlte/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmpleadosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmpleadosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_01_101856_create_step_medica_table_empleados.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_01_101856_create_step_medica_table_empleados.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_01_120855_create_datos_personales_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_01_120855_create_datos_personales_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/empleados/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empleados/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/empleados/personales.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empleados/personales.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,10 +189,15 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="743" y="283" width="424" height="479" key="FileChooserDialogImpl" timestamp="1598959924679">
-      <screen x="0" y="0" width="1920" height="1052" />
+    <state x="693" y="283" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599055536431">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state x="693" y="283" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1053/1920.0.1366.768@0.0.1920.1053" timestamp="1599055536431" />
+    <state x="743" y="283" width="424" height="479" key="FileChooserDialogImpl" timestamp="1599072881535">
+      <screen x="0" y="0" width="1920" height="1053" />
     </state>
     <state x="743" y="283" width="424" height="479" key="FileChooserDialogImpl/0.0.1920.1052/1920.0.1920.1080@0.0.1920.1052" timestamp="1598959924679" />
+    <state x="743" y="283" key="FileChooserDialogImpl/0.0.1920.1053/1920.0.1366.768@0.0.1920.1053" timestamp="1599072881535" />
     <state x="624" y="241" key="run.anything.popup" timestamp="1598967096287">
       <screen x="0" y="0" width="1920" height="1052" />
     </state>
