@@ -27,22 +27,33 @@ Route::resource('users','UserController');
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::prefix('empleados')->group(function () {
-    Route::get('biometria', 'EmpleadosController@step1')->name('biometria');
-    Route::get('salud', 'EmpleadosController@salud')->name('salud');
-    Route::get('personal', 'EmpleadosController@personal')->name('personal');
-    Route::get('cargo', 'EmpleadosController@cargo')->name('cargo');
-    Route::get('formacion', 'EmpleadosController@formacion')->name('formacion');
+    Route::get('/', 'AgentesController@index')->name('agentes.index');
+    Route::get('biometrico/{id}', 'EmpleadosController@biometrico')->name('biometrico');
+    Route::get('salud/{id}', 'EmpleadosController@salud')->name('salud');
+    Route::get('personal/{id}', 'EmpleadosController@personal')->name('personal');
+    Route::get('cargo/{id}', 'EmpleadosController@cargo')->name('cargo');
+    Route::get('formacion/{id}', 'EmpleadosController@formacion')->name('formacion');
 
 
     Route::post('salud', 'EmpleadosController@ssalud')->name('empleados.ssalud');
+    Route::post('salud/update', 'EmpleadosController@usalud')->name('empleados.usalud');
+
+
     Route::post('personal', 'EmpleadosController@spersonal')->name('empleados.spersonal');
 
+
+    Route::post('biometrico/{id}', 'EmpleadosController@sbiometrico')->name('empleados.sbiometrico');
+    Route::post('biometrico/image/delete', 'EmpleadosController@removeImage')->name('empleados.removeImage');
 
 
 
 });
 
-
+Route::get('datatable/agentes','AgentesController@agentes')->name('datatable.agentes');
 Route::get('datatable/users','UserController@anyUsers')->name('datatable.users');
 
 
+//dropzone
+Route::post('dropzone/upload', 'DropzoneController@upload')->name('dropzone.upload');
+Route::get('dropzone/fetch', 'DropzoneController@fetch')->name('dropzone.fetch');
+Route::get('dropzone/delete', 'DropzoneController@delete')->name('dropzone.delete');

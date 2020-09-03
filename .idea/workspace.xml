@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0437dfa9-2969-4297-8abe-dc2b245d5a8a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="a3f28055-04fc-4cf1-aebf-70fd70d75d16" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.docker-compose.yml.swp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.swp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Agente.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Biometria.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AgentesController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/censo2020.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_02_114101_create_biometrico_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/empleados/biometrico.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/empleados/biometrico2.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/empleados/upd_personales.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/empleados/upd_salud.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmpleadosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmpleadosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_01_101856_create_step_medica_table_empleados.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_01_101856_create_step_medica_table_empleados.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_01_120855_create_datos_personales_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_01_120855_create_datos_personales_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/empleados/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empleados/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/empleados/personales.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empleados/personales.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/empleados/salud.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empleados/salud.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="composer.json" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -137,7 +152,7 @@
       <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
     </include_path>
   </component>
-  <component name="ProjectId" id="1grhjSjod4h2LnUoRlpHBOrCyWc" />
+  <component name="ProjectId" id="1h020NEVbQ4ulyg4y0qS4wuHKnW" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -145,33 +160,23 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/empleados" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/empleados" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner scope="XML" />
-      <method v="2" />
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0437dfa9-2969-4297-8abe-dc2b245d5a8a" name="Default Changelist" comment="" />
-      <created>1598878755399</created>
+      <changelist id="a3f28055-04fc-4cf1-aebf-70fd70d75d16" name="Default Changelist" comment="" />
+      <created>1599133470678</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1598878755399</updated>
-      <workItem from="1598878756945" duration="22392000" />
+      <updated>1599133470678</updated>
+      <workItem from="1599133471795" duration="4467000" />
+      <workItem from="1599139053823" duration="8308000" />
     </task>
     <servers />
   </component>
@@ -179,13 +184,9 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="743" y="283" width="424" height="479" key="FileChooserDialogImpl" timestamp="1598959924679">
+    <state x="704" y="372" width="501" height="300" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1599140578896">
       <screen x="0" y="0" width="1920" height="1052" />
     </state>
-    <state x="743" y="283" width="424" height="479" key="FileChooserDialogImpl/0.0.1920.1052/1920.0.1920.1080@0.0.1920.1052" timestamp="1598959924679" />
-    <state x="624" y="241" key="run.anything.popup" timestamp="1598967096287">
-      <screen x="0" y="0" width="1920" height="1052" />
-    </state>
-    <state x="624" y="241" key="run.anything.popup/0.0.1920.1052/1920.0.1920.1080@0.0.1920.1052" timestamp="1598967096287" />
+    <state x="704" y="372" width="501" height="300" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1052/1920.0.1920.1080@0.0.1920.1052" timestamp="1599140578896" />
   </component>
 </project>

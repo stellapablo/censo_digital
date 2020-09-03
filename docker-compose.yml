@@ -3,22 +3,22 @@ services:
   app:
     build:
       args:
-        user: erika
+        user: pablo
         uid: 1000
       context: ./
       dockerfile: Dockerfile
-    image: sponsorshub
-    container_name: sponsorshub-app
+    image: censoapp
+    container_name: censo-app
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
       - ./:/var/www
     networks:
-      - sponsorshub
+      - censoapp
 
   db:
     image: mysql:8
-    container_name: sponsorshub-db
+    container_name: censo-db
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
@@ -28,11 +28,11 @@ services:
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     networks:
-      - sponsorshub
+      - censoapp
 
   nginx:
     image: nginx:alpine
-    container_name: sponsorshub-nginx
+    container_name: censo-nginx
     restart: unless-stopped
     ports:
       - 8004:80
@@ -40,8 +40,8 @@ services:
       - ./:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d/
     networks:
-      - sponsorshub
+      - censoapp
 
 networks:
-  sponsorshub:
+  censoapp:
     driver: bridge

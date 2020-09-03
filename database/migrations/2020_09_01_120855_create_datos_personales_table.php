@@ -14,31 +14,31 @@ class CreateDatosPersonalesTable extends Migration
     public function up()
     {
         Schema::create('datos_personales', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->string('empleado_id')->index()->nullable();
-            $table->string('fecha_nac');
-            $table->string('estado_civil');
-            $table->string('permiso');
-            $table->string('sexo');
-            $table->string('calle');
-            $table->string('altura');
-            $table->string('manzana');
-            $table->string('parcela');
-            $table->string('piso');
-            $table->string('dpto');
-            $table->string('barrio');
-            $table->string('localidad');
-            $table->string('celular');
-            $table->string('tel_fijo');
-            $table->string('email');
-            $table->string('tel_emergencia');
-            $table->string('pareja');
-            $table->string('hijos');
-            $table->string('menores');
-            $table->string('mayores');
-            $table->string('poliza');
-            $table->string('obra_social');
-            $table->string('fliares_cargo');
+            $table->string('fecha_nac')->nullable();
+            $table->string('estado_civil')->nullable();
+            $table->string('permiso')->nullable();
+            $table->string('sexo')->nullable();
+            $table->string('calle')->nullable();
+            $table->string('altura')->nullable();
+            $table->string('manzana')->nullable();
+            $table->string('parcela')->nullable();
+            $table->string('piso')->nullable();
+            $table->string('dpto')->nullable();
+            $table->string('barrio')->nullable();
+            $table->string('localidad')->nullable();
+            $table->string('celular')->nullable();
+            $table->string('tel_fijo')->nullable();
+            $table->string('email')->nullable();
+            $table->string('tel_emergencia')->nullable();
+            $table->string('pareja')->nullable();
+            $table->string('hijos')->nullable();
+            $table->string('menores')->nullable();
+            $table->string('mayores')->nullable();
+            $table->string('poliza')->nullable();
+            $table->string('obra_social')->nullable();
+            $table->string('fliares_cargo')->nullable();
             $table->timestamps();
         });
     }

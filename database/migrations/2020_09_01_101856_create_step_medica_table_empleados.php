@@ -14,27 +14,27 @@ class CreateStepMedicaTableEmpleados extends Migration
     public function up()
     {
         Schema::create('salud', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->string('empleado_id')->index()->nullable();
-            $table->string('frecuencia_cardiaca');
-            $table->string('frecuencia_respiratoria');
-            $table->string('temperatura');
-            $table->string('altura');
-            $table->string('peso');
-            $table->string('hipertension');
-            $table->string('diabetes');
-            $table->string('agudas');
-            $table->string('antitetanica');
-            $table->string('hepa');
-            $table->string('hepb');
-            $table->string('doble');
-            $table->string('antigripal');
-            $table->string('def_auditivas');
-            $table->string('def_visual');
-            $table->string('discapacidad');
-            $table->string('preocupacional');
-            $table->string('observaciones');
-            $table->string('consulta');
+            $table->string('frecuencia_cardiaca')->nullable();
+            $table->string('frecuencia_respiratoria')->nullable();
+            $table->string('temperatura')->nullable();
+            $table->string('altura')->nullable();
+            $table->string('peso')->nullable();
+            $table->string('hipertension')->nullable();
+            $table->string('diabetes')->nullable();
+            $table->string('agudas')->nullable();
+            $table->string('antitetanica')->nullable();
+            $table->string('hepa')->nullable();
+            $table->string('hepb')->nullable();
+            $table->string('doble')->nullable();
+            $table->string('antigripal')->nullable();
+            $table->string('def_auditivas')->nullable();
+            $table->string('def_visual')->nullable();
+            $table->string('discapacidad')->nullable();
+            $table->string('preocupacional')->nullable();
+            $table->string('observaciones')->nullable();
+            $table->string('consulta')->nullable();
             $table->timestamps();
         });
     }

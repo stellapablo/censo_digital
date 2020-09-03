@@ -11,8 +11,8 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Empleados</a></li>
-                        <li class="breadcrumb-item active">POSTA MEDICA</li>
+                        <li class="breadcrumb-item"><a href="#">Agentes</a></li>
+                        <li class="breadcrumb-item active">Salud</li>
                     </ol>
                 </div>
             </div>
@@ -27,12 +27,18 @@
                 <!-- general form elements disabled -->
                 <div class="card card-warning">
                     <div class="card-header">
-                        <h3 class="card-title">María Victoria Villareal (99999999)</h3>
+                        <h3 class="card-title">{{ $agente->APYNOM }}  - ({{ $agente->CUILAG }}) </h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
+                        @if(Session::has('success'))
+                            <div class="alert alert-success">
+                                {{Session::get('success')}}
+                            </div>
+                        @endif
                         <form action="{{ route('empleados.ssalud') }}" method="POST" >
                             {{ csrf_field() }}
+                            <input type="hidden" name="empleado_id" value="{{$agente->id}}"  class="form-control" placeholder="Enter ...">
                             <div class="row">
                                 <div class="col-sm-3">
                                     <div class="form-group">
@@ -49,7 +55,7 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Temperatura</label>
-                                        <input type="text" class="form-control" name="temperatura" placeholder="Enter ...">
+                                        <input type="text" class="form-control" data-mask="00" name="temperatura" placeholder="Enter ...">
                                     </div>
                                 </div>
                             </div>
@@ -57,13 +63,13 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Altura</label>
-                                        <input type="text" class="form-control" name="altura" placeholder="Enter ...">
+                                        <input type="text" class="form-control" data-mask="0.00" name="altura" placeholder="Enter ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Peso</label>
-                                        <input type="text" class="form-control" name="peso" placeholder="Enter ...">
+                                        <input type="text" class="form-control" data-mask="000" name="peso" placeholder="Enter ...">
                                     </div>
                                 </div>
                             </div>
