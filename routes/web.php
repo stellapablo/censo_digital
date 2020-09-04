@@ -31,7 +31,7 @@ Route::prefix('empleados')->group(function () {
     Route::get('biometrico/{id}', 'EmpleadosController@biometrico')->name('biometrico');
     Route::get('salud/{id}', 'EmpleadosController@salud')->name('salud');
     Route::get('personal/{id}', 'EmpleadosController@personal')->name('personal');
-    Route::get('cargo/{id}', 'EmpleadosController@cargo')->name('cargo');
+    Route::get('cargo', 'EmpleadosController@cargo')->name('cargo');
     Route::get('formacion/{id}', 'EmpleadosController@formacion')->name('formacion');
 
 
@@ -40,6 +40,7 @@ Route::prefix('empleados')->group(function () {
 
 
     Route::post('personal', 'EmpleadosController@spersonal')->name('empleados.spersonal');
+    Route::post('personal/update', 'EmpleadosController@upersonal')->name('empleados.usalud');
 
 
     Route::post('biometrico/{id}', 'EmpleadosController@sbiometrico')->name('empleados.sbiometrico');

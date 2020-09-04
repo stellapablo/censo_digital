@@ -18,6 +18,7 @@ class CreateDatosPersonalesTable extends Migration
             $table->string('empleado_id')->index()->nullable();
             $table->string('fecha_nac')->nullable();
             $table->string('estado_civil')->nullable();
+            $table->string('residencia')->nullable();
             $table->string('permiso')->nullable();
             $table->string('sexo')->nullable();
             $table->string('calle')->nullable();

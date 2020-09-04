@@ -55,14 +55,13 @@ class EmpleadosController extends Controller
     }
 
 
-
     public function personal($id){
 
         $agente = Agente::find($id);
         $data = Personal::where('empleado_id','=',$id)->first();
 
         if($data != null ){
-            return view('empleados.upd_salud',compact('agente','data'));
+            return view('empleados.upd_personales',compact('agente','data'));
         }
 
         return view('empleados.personales',compact('agente'));
@@ -72,6 +71,7 @@ class EmpleadosController extends Controller
     public function spersonal(Request $request){
 
         Personal::create($request->all());
+
         return redirect()->route('personal', ['id' => $request->empleado_id])->withSuccess('Datos Actualizados correctamente');
 
     }
@@ -80,8 +80,9 @@ class EmpleadosController extends Controller
     public function upersonal(Request $request){
 
         $data = $request->all();
-        $salud = Personal::where('empleado_id','=',$request->empleado_id)->first();
-        $salud->fill($data)->save();
+
+        $personal = Personal::where('empleado_id','=',$request->empleado_id)->first();
+        $personal->fill($data)->save();
 
         return redirect()->route('personal', ['id' => $request->empleado_id])->withSuccess('Datos Actualizados correctamente');
 
@@ -142,6 +143,10 @@ class EmpleadosController extends Controller
             return response()->json(['success'=>$request]);
 
         }
+    }
+
+    public function cargo(){
+        return view('empleados.cargos');
     }
 
 
