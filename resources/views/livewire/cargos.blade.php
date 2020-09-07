@@ -11,7 +11,7 @@
             @endif
         </div>
         <div class="input-group input-group-sm">
-            <input type="text" class="form-control" placeholder="Ingrese el cargo." wire:model.debounce.500ms="newCargo">
+            <input type="text" class="form-control" placeholder="Ingrese el cargo." wire:model.debounce.0ms="newCargo">
             <span class="input-group-append">
                 <button type="submit" class="btn btn-info btn-flat">Agregar!</button>
             </span>
@@ -22,11 +22,12 @@
 <div class="card-body p-0">
     <table class="table">
         <thead>
-        <tr>
-            <th style="width: 10px">#</th>
-            <th>Titulo</th>
-            <th>Creado</th>
-        </tr>
+            <tr>
+                <th style="width: 10px">#</th>
+                <th>Titulo</th>
+                <th>Creado</th>
+                <td></td>
+            </tr>
         </thead>
         <tbody>
         @foreach($cargos as $cargo)
@@ -34,7 +35,7 @@
                 <td>{{ $cargo->id }}</td>
                 <td>{{ $cargo->nombre }}</td>
                 <td>{{ $cargo->created_at }}</td>
-                <td><button wire:click="remove(158)">Eliminar</button></td>
+                <td><a href="{{ route('delete.cargo',[$cargo->id]) }}" ><i class="fa fa-trash"></i></a></td>
             </tr>
         @endforeach
         </tbody>

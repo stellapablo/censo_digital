@@ -16,7 +16,7 @@ class Cargos extends Component{
 
         $createdCargo = Cargo::create([
             'nombre' => $this->newCargo,
-            'empleado_id' => 1,
+            'empleado_id' => session('agente_id'),
         ]);
         $this->newCargo = "";
         session()->flash('message', 'Comment added successfully 😁');

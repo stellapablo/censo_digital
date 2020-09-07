@@ -224,8 +224,8 @@
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox">
 
-                                            @if($data->obra_social)
-                                                <input class="custom-control-input" name="poliza" type="checkbox" id="customCheckbox2" checked>
+                                            @if($data->poliza)
+                                                <input class="custom-control-input" name="poliza" type="checkbox" id="customCheckbox1" checked>
                                             @else
                                                 <input class="custom-control-input" name="poliza" type="checkbox" id="customCheckbox2" >
                                             @endif

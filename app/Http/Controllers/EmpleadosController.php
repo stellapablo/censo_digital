@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Agente;
 use App\Biometria;
+use App\Cargo;
 use App\Personal;
 use App\Salud;
 use Illuminate\Http\Request;
@@ -145,8 +146,26 @@ class EmpleadosController extends Controller
         }
     }
 
-    public function cargo(){
+    public function cargo($id){
+
+        $agente = Agente::find($id);
+
+        session(['agente_id' => $id]);
+        session(['agente_nya' => $agente->APYNOM]);
+        session(['agente_dni' => $agente->DOCUME]);
+
+
         return view('empleados.cargos');
+    }
+
+    public function deleteCargo($id){
+
+        $cargo = Cargo::find($id);
+        $cargo->delete();
+
+        return redirect()->route('cargo',[session('agente_id')])->withSuccess('Datos actualizados');
+
+
     }
 
 

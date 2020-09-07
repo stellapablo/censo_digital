@@ -23,7 +23,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <!-- general form elements disabled -->
                 <div class="card card-warning">
                     <div class="card-header">
