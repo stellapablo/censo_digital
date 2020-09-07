@@ -29,7 +29,7 @@ class AgentesController extends Controller
                 return '<a href="empleados/biometrico/'.$agentes->id.'"  class="btn btn-app"><i class="fas fa-photo-video"></i> Foto</a>
                 <a href="empleados/salud/'.$agentes->id.'" class="btn btn-app"><i class="fas fa-hospital"></i> Salud</a>
                 <a href="empleados/personal/'.$agentes->id.'"  class="btn btn-app"><i class="fas fa-database"></i> Personal</a>
-                <a href="empleados/cargo/'.$agentes->id.'" class="btn btn-app"><i class="fas fa-child"></i> Cargo</a>
+                <a href="empleados/revista/'.$agentes->id.'" class="btn btn-app"><i class="fas fa-child"></i> Cargo</a>
                 <a class="btn btn-app"><span class="badge bg-warning">Listo</span><i class="fas fa-graduation-cap"></i> Estudios</a>';
             })
             ->editColumn('id', '{{$id}}')

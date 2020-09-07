@@ -541,6 +541,7 @@ class ComposerStaticInit00cac5469831c9b1caddfa652d128735
 
     public static $classMap = array (
         'App\\Agente' => __DIR__ . '/../..' . '/app/Agente.php',
+        'App\\Area' => __DIR__ . '/../..' . '/app/Area.php',
         'App\\Biometria' => __DIR__ . '/../..' . '/app/Biometria.php',
         'App\\Cargo' => __DIR__ . '/../..' . '/app/Cargo.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
@@ -573,6 +574,7 @@ class ComposerStaticInit00cac5469831c9b1caddfa652d128735
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Revista' => __DIR__ . '/../..' . '/app/Revista.php',
         'App\\Salud' => __DIR__ . '/../..' . '/app/Salud.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',

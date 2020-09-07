@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Agente' => $baseDir . '/app/Agente.php',
+    'App\\Area' => $baseDir . '/app/Area.php',
     'App\\Biometria' => $baseDir . '/app/Biometria.php',
     'App\\Cargo' => $baseDir . '/app/Cargo.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
@@ -39,6 +40,7 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
+    'App\\Revista' => $baseDir . '/app/Revista.php',
     'App\\Salud' => $baseDir . '/app/Salud.php',
     'App\\User' => $baseDir . '/app/User.php',
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',

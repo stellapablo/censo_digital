@@ -2,59 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3f28055-04fc-4cf1-aebf-70fd70d75d16" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/empleados/cargos.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AgentesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AgentesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmpleadosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmpleadosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Personal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Personal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_01_120855_create_datos_personales_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_01_120855_create_datos_personales_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/empleados/biometrico.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empleados/biometrico.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/empleados/biometrico2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empleados/biometrico2.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/empleados/personales.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empleados/personales.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_03_195916_create_cargos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_03_195916_create_cargos_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/empleados/revista.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empleados/revista.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/empleados/upd_personales.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empleados/upd_personales.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/adminlte/master.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Console/GeneratorCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Console/GeneratorCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Pagination/Paginator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Pagination/Paginator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/QueriesRelationships.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/QueriesRelationships.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Application.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Application.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Console/ComponentMakeCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Console/ComponentMakeCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Console/MailMakeCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Console/MailMakeCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Console/NotificationMakeCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Console/NotificationMakeCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Testing/RefreshDatabase.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Testing/RefreshDatabase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Routing/UrlGenerator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Routing/UrlGenerator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Str.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Str.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Stringable.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Stringable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/View/Component.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/View/Component.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/Internal/TokenStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/Internal/TokenStream.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/Lexer.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/Lexer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/Node/Name.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/Node/Name.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/PrettyPrinterAbstract.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/PrettyPrinterAbstract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/console/Application.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/console/Application.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/console/Descriptor/TextDescriptor.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/console/Descriptor/TextDescriptor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/console/Helper/Table.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/console/Helper/Table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/error-handler/DebugClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/error-handler/DebugClassLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/finder/Gitignore.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/finder/Gitignore.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/DataCollector/ConfigDataCollector.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/DataCollector/ConfigDataCollector.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/DataCollector/DumpDataCollector.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/DataCollector/DumpDataCollector.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/HttpClientKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/HttpClientKernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Part/DataPart.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Part/DataPart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/AnnotationFileLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/routing/Loader/AnnotationFileLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/string/AbstractString.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/string/AbstractString.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/string/ByteString.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/string/ByteString.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/string/CodePointString.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/string/CodePointString.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/string/UnicodeString.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/string/UnicodeString.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/translation/Dumper/PoFileDumper.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/translation/Dumper/PoFileDumper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/translation/Util/XliffUtils.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/translation/Util/XliffUtils.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/var-dumper/Cloner/VarCloner.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/var-dumper/Cloner/VarCloner.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/var-dumper/Dumper/CliDumper.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/var-dumper/Dumper/CliDumper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/var-dumper/VarDumper.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/var-dumper/VarDumper.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +161,7 @@
       <option name="presentableId" value="Default" />
       <updated>1599133470678</updated>
       <workItem from="1599133471795" duration="4467000" />
-      <workItem from="1599139053823" duration="8308000" />
+      <workItem from="1599139053823" duration="17994000" />
     </task>
     <servers />
   </component>
@@ -222,6 +177,10 @@
       <screen x="0" y="0" width="1920" height="1052" />
     </state>
     <state x="704" y="372" width="501" height="300" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1052/1920.0.1920.1080@0.0.1920.1052" timestamp="1599140578896" />
+    <state x="769" y="442" width="372" height="161" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599484568148">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="769" y="442" width="372" height="161" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1052/1920.0.1920.1080@0.0.1920.1052" timestamp="1599484568148" />
     <state x="623" y="231" width="672" height="678" key="search.everywhere.popup" timestamp="1599164853358">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
