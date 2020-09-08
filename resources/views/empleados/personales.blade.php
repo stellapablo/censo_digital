@@ -76,7 +76,7 @@
                             <!-- general form elements disabled -->
                             <div class="card card-secondary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Domicilio: Av. Las Cosas 12355, Barrio La Lijuria, RESISTENCIA</h3>
+                                    <h3 class="card-title">Domicilio: {{ $agente->DOMICI }}</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">

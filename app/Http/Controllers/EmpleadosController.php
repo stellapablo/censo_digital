@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Agente;
 use App\Area;
 use App\Biometria;
+use App\Cargo;
+use App\CargoRevista;
 use App\Personal;
 use App\Revista;
 use App\Salud;
@@ -147,8 +149,28 @@ class EmpleadosController extends Controller
         }
     }
 
+    public function formacion($id){
+
+        $agente = Agente::find($id);
+
+        session(['agente_id' => $id]);
+        session(['agente_nya' => $agente->APYNOM]);
+        session(['agente_dni' => $agente->DOCUME]);
+
+        return view('empleados.cargos');
+    }
+
+    public function deleteCargo($id){
+
+        $cargo = Cargo::find($id);
+        $cargo->delete();
+
+        return redirect()->route('cargo',[session('agente_id')])->withSuccess('Datos actualizados');
+
+    }
 
     public function revista($id){
+
 
         $revista =  ['' => ''] + Revista::orderBy('nombre','desc')->pluck('nombre','id')->all();
         $agente = Agente::find($id);
@@ -158,18 +180,31 @@ class EmpleadosController extends Controller
         $sub = $this->checkSubr($agente);
         $cargo_sub = $this->cargoSubr($agente);
 
-        return view('empleados.revista',compact('agente','revista','areas','sub','cargo_sub'));
+        $data = CargoRevista::where('empleado_id','=',$id)->first();
 
+        if($data != null ){
+
+            return view('empleados.upd_revista',compact('agente','data','revista','sub','cargo_sub','areas'));
+        }
+
+        return view('empleados.revista',compact('agente','revista','areas','sub','cargo_sub'));
     }
 
     public function srevista(Request  $request){
 
-        dd($request->all());
+        CargoRevista::create($request->all());
 
-        Personal::create($request->all());
+        return redirect()->route('revista', ['id' => $request->empleado_id])->withSuccess('Datos Actualizados correctamente');
+    }
 
-        return redirect()->route('personal', ['id' => $request->empleado_id])->withSuccess('Datos Actualizados correctamente');
+    public function urevista(Request  $request){
 
+        $data = $request->all();
+
+        $personal = CargoRevista::where('empleado_id','=',$request->empleado_id)->first();
+        $personal->fill($data)->save();
+
+        return redirect()->route('revista', ['id' => $request->empleado_id])->withSuccess('Datos Actualizados correctamente');
     }
 
     public function checkSubr(Agente $agente){

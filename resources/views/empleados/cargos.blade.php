@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Agentes</a></li>
-                        <li class="breadcrumb-item active">Salud</li>
+                        <li class="breadcrumb-item active">Formación</li>
                     </ol>
                 </div>
             </div>
@@ -23,7 +23,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <!-- general form elements disabled -->
                 <div class="card card-warning">
                     <div class="card-header">

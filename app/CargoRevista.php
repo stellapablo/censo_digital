@@ -8,6 +8,6 @@ class CargoRevista extends Model
 {
     protected $table = 'cargos_revista';
 
-    protected $fillable = ['revista_id','haberes','motivo','suroga_en','trabaja_en','mañana','tarde','noche'];
+    protected $fillable = ['revista_id','haberes','motivo','subroga_en','trabaja_en','mañana','tarde','noche'];
 
 }

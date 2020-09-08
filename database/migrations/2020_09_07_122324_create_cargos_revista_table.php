@@ -16,6 +16,7 @@ class CreateCargosRevistaTable extends Migration
         Schema::create('cargos_revista', function (Blueprint $table) {
             $table->id();
             $table->string('revista_id')->index()->nullable();
+            $table->integer('empleado_id')->index()->nullable();
             $table->string('haberes')->nullable();
             $table->string('motivo')->nullable();
             $table->string('subroga_en')->index()->nullable();
@@ -25,6 +26,7 @@ class CreateCargosRevistaTable extends Migration
             $table->string('noche')->nullable();
             $table->timestamps();
         });
+
     }
 
     /**

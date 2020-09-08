@@ -8,17 +8,21 @@ use Livewire\Component;
 class Cargos extends Component{
 
     public $newCargo;
-
+    public $nivel_id;
 
     public function addCargo(){
 
-        $this->validate(['newCargo' => 'required|max:255']);
+        $this->validate(['newCargo' => 'required|max:255','nivel_id'=>'required']);
+
 
         $createdCargo = Cargo::create([
             'nombre' => $this->newCargo,
-            'empleado_id' => 1,
+            'nivel_id' => $this->nivel_id,
+            'empleado_id' => session('agente_id'),
         ]);
         $this->newCargo = "";
+        $this->nivel_id = "";
+
         session()->flash('message', 'Comment added successfully 😁');
 
     }
@@ -34,7 +38,7 @@ class Cargos extends Component{
     public function render(){
 
         return view('livewire.cargos',
-            ['cargos' => Cargo::latest()->get()]);
+            ['cargos' => Cargo::where('empleado_id','=',session('agente_id'))->get(),]);
     }
 
 }

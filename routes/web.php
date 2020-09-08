@@ -31,6 +31,7 @@ Route::prefix('empleados')->group(function () {
     Route::get('biometrico/{id}', 'EmpleadosController@biometrico')->name('biometrico');
     Route::get('salud/{id}', 'EmpleadosController@salud')->name('salud');
     Route::get('personal/{id}', 'EmpleadosController@personal')->name('personal');
+
     Route::get('revista/{id}', 'EmpleadosController@revista')->name('revista');
     Route::get('formacion/{id}', 'EmpleadosController@formacion')->name('formacion');
 
@@ -40,7 +41,7 @@ Route::prefix('empleados')->group(function () {
 
 
     Route::post('personal', 'EmpleadosController@spersonal')->name('empleados.spersonal');
-    Route::post('personal/update', 'EmpleadosController@upersonal')->name('empleados.usalud');
+    Route::post('personal/update', 'EmpleadosController@upersonal')->name('empleados.upersonal');
 
     Route::post('revista', 'EmpleadosController@srevista')->name('empleados.srevista');
     Route::post('revista/update', 'EmpleadosController@urevista')->name('empleados.urevista');
@@ -49,6 +50,7 @@ Route::prefix('empleados')->group(function () {
     Route::post('biometrico/{id}', 'EmpleadosController@sbiometrico')->name('empleados.sbiometrico');
     Route::post('biometrico/image/delete', 'EmpleadosController@removeImage')->name('empleados.removeImage');
 
+    Route::get('formacion/delete/{id}', 'EmpleadosController@deleteCargo')->name('delete.formacion');
 
 
 });

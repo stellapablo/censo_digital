@@ -3,6 +3,24 @@
   <component name="ChangeListManager">
     <list default="true" id="a3f28055-04fc-4cf1-aebf-70fd70d75d16" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmpleadosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmpleadosController.php" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Cargos.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Cargos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Personal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Personal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/empleados/cargos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empleados/cargos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/empleados/upd_personales.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empleados/upd_personales.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/cargos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/cargos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_03_195916_create_cargos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_03_195916_create_cargos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/empleados/revista.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empleados/revista.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+>>>>>>> e9d274cb93f796fbcbec7b62e72dfc8798aaada5
+>>>>>>> ed1918f491d40be09307c3a2455d34279bebc230
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,10 +180,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="693" y="283" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599176155120">
+    <state x="693" y="283" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599231897873">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
-    <state x="693" y="283" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1053/1920.0.1366.768@0.0.1920.1053" timestamp="1599176155120" />
+    <state x="693" y="283" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1053/1920.0.1366.768@0.0.1920.1053" timestamp="1599231897873" />
     <state x="704" y="372" width="501" height="300" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1599140578896">
       <screen x="0" y="0" width="1920" height="1052" />
     </state>
