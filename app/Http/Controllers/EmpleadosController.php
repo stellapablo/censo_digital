@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Agente;
+use App\Area;
 use App\Biometria;
 use App\Cargo;
+use App\CargoRevista;
 use App\Personal;
+use App\Revista;
 use App\Salud;
 use Illuminate\Http\Request;
 use File;
@@ -146,7 +149,7 @@ class EmpleadosController extends Controller
         }
     }
 
-    public function cargo($id){
+    public function formacion($id){
 
         $agente = Agente::find($id);
 
@@ -168,5 +171,76 @@ class EmpleadosController extends Controller
 
     }
 
+    public function revista($id){
+
+
+        $revista =  ['' => ''] + Revista::orderBy('nombre','desc')->pluck('nombre','id')->all();
+        $agente = Agente::find($id);
+        $areas = ['' => ''] + Area::orderBy('are_des')->pluck('are_des','are_nro')->all();
+
+        //subroga
+        $sub = $this->checkSubr($agente);
+        $cargo_sub = $this->cargoSubr($agente);
+
+        $data = CargoRevista::where('empleado_id','=',$id)->first();
+
+        if($data != null ){
+
+            return view('empleados.upd_revista',compact('agente','data','revista','sub','cargo_sub','areas'));
+        }
+
+        return view('empleados.revista',compact('agente','revista','areas','sub','cargo_sub'));
+
+    }
+
+    public function srevista(Request  $request){
+
+        CargoRevista::create($request->all());
+
+        return redirect()->route('revista', ['id' => $request->empleado_id])->withSuccess('Datos Actualizados correctamente');
+
+    }
+
+    public function urevista(Request  $request){
+
+        $data = $request->all();
+
+        $personal = CargoRevista::where('empleado_id','=',$request->empleado_id)->first();
+        $personal->fill($data)->save();
+
+        return redirect()->route('revista', ['id' => $request->empleado_id])->withSuccess('Datos Actualizados correctamente');
+
+
+
+    }
+
+    public function checkSubr(Agente $agente){
+
+        if($agente->SUBRGR <> 0){
+            return "Si";
+        }else{
+            return "No";
+        }
+    }
+
+    public function cargoSubr(Agente $agente){
+
+        $dir = array("16", "17", "18");
+
+        if($agente->SUBRGR = 21){
+            return 'Direccion General';
+        }
+
+        if($agente->SUBRGR = 20 or $agente->SUBRGR = 19){
+            return 'Direccion';
+        }
+
+        if (in_array($agente->SUBRGR, $dir )) {
+            return "Jefe de Departamento";
+        }
+
+        return 'Sin informacion';
+
+    }
 
 }

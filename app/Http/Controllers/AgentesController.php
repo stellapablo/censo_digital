@@ -26,11 +26,12 @@ class AgentesController extends Controller
 
         return DataTables::of($agentes)
             ->addColumn('action', function ($agentes) {
-                return '<a href="empleados/biometrico/'.$agentes->id.'"  class="btn btn-app"><i class="fas fa-photo-video"></i> Foto</a>
-                <a href="empleados/salud/'.$agentes->id.'" class="btn btn-app"><i class="fas fa-hospital"></i> Salud</a>
-                <a href="empleados/personal/'.$agentes->id.'"  class="btn btn-app"><i class="fas fa-database"></i> Personal</a>
-                <a href="empleados/cargo/'.$agentes->id.'" class="btn btn-app"><i class="fas fa-child"></i> Cargo</a>
-                <a class="btn btn-app"><span class="badge bg-warning">Listo</span><i class="fas fa-graduation-cap"></i> Estudios</a>';
+                return '
+                <a href="/empleados/biometrico/'.$agentes->id.'" class="btn btn-app"><i class="fas fa-photo-video"></i> Foto</a>
+                <a href="/empleados/salud/'.$agentes->id.'" class="btn btn-app"><span class="badge bg-warning"><i class="fas fa-check"></i></span><i class="fas fa-hospital"></i> Salud</a>
+                <a href="/empleados/personal/'.$agentes->id.'"  class="btn btn-app"><i class="fas fa-database"></i> Personal</a>
+                <a href="/empleados/revista/'.$agentes->id.'" class="btn btn-app"><i class="fas fa-child"></i> Cargo</a>
+                <a href="/empleados/formacion/'.$agentes->id.'"class="btn btn-app"><span class="badge bg-warning"><i class="fas fa-check"></i></span><i class="fas fa-graduation-cap"></i> Formacion</a>';
             })
             ->editColumn('id', '{{$id}}')
             ->make(true);

@@ -541,8 +541,10 @@ class ComposerStaticInit00cac5469831c9b1caddfa652d128735
 
     public static $classMap = array (
         'App\\Agente' => __DIR__ . '/../..' . '/app/Agente.php',
+        'App\\Area' => __DIR__ . '/../..' . '/app/Area.php',
         'App\\Biometria' => __DIR__ . '/../..' . '/app/Biometria.php',
         'App\\Cargo' => __DIR__ . '/../..' . '/app/Cargo.php',
+        'App\\CargoRevista' => __DIR__ . '/../..' . '/app/CargoRevista.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AgentesController' => __DIR__ . '/../..' . '/app/Http/Controllers/AgentesController.php',
@@ -573,6 +575,7 @@ class ComposerStaticInit00cac5469831c9b1caddfa652d128735
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Revista' => __DIR__ . '/../..' . '/app/Revista.php',
         'App\\Salud' => __DIR__ . '/../..' . '/app/Salud.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
@@ -4267,6 +4270,7 @@ class ComposerStaticInit00cac5469831c9b1caddfa652d128735
         'Ramsey\\Uuid\\UuidInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidInterface.php',
         'Ramsey\\Uuid\\Validator\\GenericValidator' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/GenericValidator.php',
         'Ramsey\\Uuid\\Validator\\ValidatorInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/ValidatorInterface.php',
+        'RevistaSeeder' => __DIR__ . '/../..' . '/database/seeds/RevistaSeeder.php',
         'SebastianBergmann\\CodeCoverage\\CodeCoverage' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/CodeCoverage.php',
         'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
         'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Driver/Driver.php',

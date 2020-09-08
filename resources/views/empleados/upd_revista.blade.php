@@ -36,14 +36,14 @@
                                 {{Session::get('success')}}
                             </div>
                         @endif
-                        <form action="{{ route('empleados.srevista') }}" method="POST" >
+                        <form action="{{ route('empleados.urevista') }}" method="POST" >
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Situacion de revista</label>
                                         <input type="hidden" name="empleado_id" value="{{$agente->id}}"  class="form-control">
-                                        {!! Form::select('revista_id', $revista ,  $agente->SITREV, ['class' => 'form-control','autocomplete'=> 'off'])!!}
+                                        {!! Form::select('revista_id', $revista ,  $data->revista_id, ['class' => 'form-control','autocomplete'=> 'off'])!!}
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +57,7 @@
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>&nbsp;</label>
-                                        <input type="text" name="motivo" class="form-control" placeholder="Si no percibe, indique la razón">
+                                        <input type="text" name="motivo" value="{{ $data->motivo }}" class="form-control" placeholder="Si no percibe, indique la razón">
                                     </div>
                                 </div>
                             </div>
@@ -71,22 +71,22 @@
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <div class="callout callout-info">
-                                                    <h5>Subrogancia</h5>
-                                                    <p>Subroga: {{ $sub }}</p>
-                                                    <p>Categoria: {{ $cargo_sub }}</p>
-                                                    <h5>Cargo de base</h5>
-                                                    <p>Lugar de trabajo: {{ $agente->DENARE }}</p>
+                                                <h5>Subrogancia</h5>
+                                                <p>Subroga: {{ $sub }}</p>
+                                                <p>Categoria: {{ $cargo_sub }}</p>
+                                                <h5>Cargo de base</h5>
+                                                <p>Lugar de trabajo: {{ $agente->DENARE }}</p>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <h5>Datos que no se encuentran en sistema, pero son declarados por el Agente. </h5>
                                             <div class="form-group">
                                                 <label>Subroga en:</label>
-                                                <input type="text" class="form-control" name="subroga_en" placeholder="Enter ...">
+                                                <input type="text" class="form-control" value="{{ $data->subroga_en }}" name="subroga_en" >
                                             </div>
                                             <div class="form-group">
                                                 <label>Lugar fisico de trabajo</label>
-                                                {!! Form::select('trabaja_en', $areas ,  null, ['class' => 'form-control','autocomplete'=> 'off'])!!}
+                                                {!! Form::select('trabaja_en', $areas ,  $data->trabaja_en , ['class' => 'form-control','autocomplete'=> 'off'])!!}
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
@@ -95,15 +95,24 @@
                                             <div class="form-group">
                                                 <!-- <h5 class="mt-4 mb-2">Enfermedades</h5> -->
                                                 <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" name="mañana" type="checkbox" id="customCheckbox1">
+
+                                                    @if($data->mañana)
+                                                        <input class="custom-control-input" name="mañana" type="checkbox" id="customCheckbox1" checked>
+                                                    @endif
                                                     <label for="customCheckbox1" class="custom-control-label">Mañana</label>
                                                 </div>
                                                 <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" name="tarde" type="checkbox" id="customCheckbox2">
+
+                                                    @if($data->tarde)
+                                                        <input class="custom-control-input" name="tarde" type="checkbox" id="customCheckbox2" checked>
+                                                    @endif
                                                     <label for="customCheckbox2" class="custom-control-label">Tarde</label>
                                                 </div>
                                                 <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" name="noche" type="checkbox" id="customCheckbox3" >
+
+                                                    @if($data->noche)
+                                                        <input class="custom-control-input" name="tarde" type="checkbox" id="customCheckbox3" checked>
+                                                    @endif
                                                     <label for="customCheckbox3" class="custom-control-label">Noche</label>
                                                 </div>
                                             </div>
@@ -112,10 +121,10 @@
 
                                 </div>
 
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-default" >Cancelar</button>
-                                <button type="submit" class="btn btn-success float-right">Guardar</button>
-                            </div>
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-default" >Cancelar</button>
+                                    <button type="submit" class="btn btn-success float-right">Guardar</button>
+                                </div>
                         </form>
                     </div>
                     <!-- /.card-body -->

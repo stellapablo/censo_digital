@@ -1,6 +1,6 @@
 <form wire:submit="addCargo" >
     <div class="card-body">
-        <p>Agregar Cargos</p>
+        <h5>Agregar Formación</h5>
 
         @error('newCargo') <span class="text-red">{{ $message }}</span> @enderror
         <div>
@@ -11,8 +11,11 @@
             @endif
         </div>
         <div class="input-group input-group-sm">
-            <input type="text" class="form-control" placeholder="Ingrese el cargo." wire:model.debounce.0ms="newCargo">
-            <span class="input-group-append">
+            <input type="text" class="form-control col-sm-4" placeholder="Ingrese el cargo."  wire:model.debounce.0ms="newCargo">
+
+            <input type="text" style="margin-left: 2em;" class="form-control  col-sm-4" placeholder="Ingrese el nivel."  wire:model.debounce.0ms="newCargo">
+
+            <span class="input-group-append"  style="margin-left: 2em;">
                 <button type="submit" class="btn btn-info btn-flat">Agregar!</button>
             </span>
         </div>
@@ -35,7 +38,7 @@
                 <td>{{ $cargo->id }}</td>
                 <td>{{ $cargo->nombre }}</td>
                 <td>{{ $cargo->created_at }}</td>
-                <td><a href="{{ route('delete.cargo',[$cargo->id]) }}" ><i class="fa fa-trash"></i></a></td>
+                <td><a href="{{ route('delete.formacion',[$cargo->id]) }}" ><i class="fa fa-trash"></i></a></td>
             </tr>
         @endforeach
         </tbody>

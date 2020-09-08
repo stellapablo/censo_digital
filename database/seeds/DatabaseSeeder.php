@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         //$this->call(UserSeeder::class);
         factory('App\User',200)->create();
+        $this->call(RevistaSeeder::class);
 
     }
 }

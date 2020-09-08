@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Agentes</a></li>
-                        <li class="breadcrumb-item active">Salud</li>
+                        <li class="breadcrumb-item active">Formación</li>
                     </ol>
                 </div>
             </div>
