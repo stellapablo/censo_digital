@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Agente;
 use App\Cargo;
+use App\Titulo;
 use Livewire\Component;
 
 class Cargos extends Component{
@@ -37,8 +39,11 @@ class Cargos extends Component{
 
     public function render(){
 
-        return view('livewire.cargos',
-            ['cargos' => Cargo::where('empleado_id','=',session('agente_id'))->get(),]);
+        $agente = Agente::find(session('agente_id'))->first();
+        $cargos = Cargo::where('empleado_id','=',session('agente_id'))->get();
+        $titulo = Titulo::where('codigo','=',$agente->TITULO)->first();
+
+        return view('livewire.cargos',compact('cargos','titulo'));
     }
 
 }

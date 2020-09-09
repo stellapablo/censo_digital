@@ -1,7 +1,9 @@
 <form wire:submit="addCargo" >
-    <div class="card-body">
-        <h5>Agregar Formación</h5>
-
+    <br class="card-body">
+        <div class="card-header">
+            <h4>DECLARADO: {{ $titulo->Carrera }}</h4>
+        </div>
+        </br>
         @error('newCargo') <span class="text-red">{{ $message }}</span> @enderror
         <div>
             @if (session()->has('message'))
@@ -11,7 +13,7 @@
             @endif
         </div>
         <div class="input-group input-group-sm">
-            <input type="text" class="form-control col-sm-4" placeholder="Ingrese el cargo."  wire:model.debounce.0ms="newCargo">
+            <input type="text" class="form-control col-sm-4" placeholder="Agregar nueva formación u oficio."  wire:model.debounce.0ms="newCargo">
             {!! Form::select('nivel_id', [''=>'','Si'=>'Si','No'=>'No'] ,  null, ['class' => 'form-control col-sm-4','style'=> 'margin-left: 2em','wire:model.debounce.0ms=nivel_id'])!!}
             <span class="input-group-append"  style="margin-left: 2em;">
                 <button type="submit" class="btn btn-info btn-flat">Agregar!</button>
@@ -43,5 +45,4 @@
     </table>
 </div>
 <!-- /.card-body -->
-
-    <!-- /.box-body -->
+<!-- /.box-body -->

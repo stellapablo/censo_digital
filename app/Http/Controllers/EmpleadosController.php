@@ -156,6 +156,7 @@ class EmpleadosController extends Controller
         session(['agente_id' => $id]);
         session(['agente_nya' => $agente->APYNOM]);
         session(['agente_dni' => $agente->DOCUME]);
+        session(['agente_titulo' => $agente->TITULO]);
 
         return view('empleados.cargos');
     }

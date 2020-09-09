@@ -27,7 +27,7 @@
                 <!-- general form elements disabled -->
                 <div class="card card-warning">
                     <div class="card-header">
-
+                        <h3 class="card-title">{{ session('agente_nya')}}  - ({{ session('agente_dni') }}) </h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
