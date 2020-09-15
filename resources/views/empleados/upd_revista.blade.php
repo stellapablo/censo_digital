@@ -69,7 +69,7 @@
                                 <!-- /.card-header -->
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-6">
                                             <div class="callout callout-info">
                                                 <h5>Subrogancia</h5>
                                                 <p>Subroga: {{ $sub }}</p>
@@ -78,7 +78,17 @@
                                                 <p>Lugar de trabajo: {{ $agente->DENARE }}</p>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-6">
+                                            <div class="callout callout-info">
+                                                <h5>CONCEPTOS Y LIQUIDACIONES</h5>
+                                                <ul>
+                                                @foreach($conceptos as $row)
+                                                    <li>{{ $row }}</li>
+                                                @endforeach
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
                                             <h5>Datos que no se encuentran en sistema, pero son declarados por el Agente. </h5>
                                             <div class="form-group">
                                                 <label>Subroga en:</label>
@@ -89,32 +99,36 @@
                                                 {!! Form::select('trabaja_en', $areas ,  $data->trabaja_en , ['class' => 'form-control','autocomplete'=> 'off'])!!}
                                             </div>
                                         </div>
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-6">
                                             <h5>Horario de trabajo</h5>
                                             <!-- checkbox -->
                                             <div class="form-group">
                                                 <!-- <h5 class="mt-4 mb-2">Enfermedades</h5> -->
                                                 <div class="custom-control custom-checkbox">
-
                                                     @if($data->mañana)
                                                         <input class="custom-control-input" name="mañana" type="checkbox" id="customCheckbox1" checked>
+                                                    @else
+                                                        <input class="custom-control-input" name="mañana" type="checkbox" id="customCheckbox1" >
                                                     @endif
-                                                    <label for="customCheckbox1" class="custom-control-label">Mañana</label>
+                                                    <label for="customCheckbox2" class="custom-control-label">Mañana</label>
                                                 </div>
                                                 <div class="custom-control custom-checkbox">
-
                                                     @if($data->tarde)
                                                         <input class="custom-control-input" name="tarde" type="checkbox" id="customCheckbox2" checked>
+                                                    @else
+                                                        <input class="custom-control-input" name="tarde" type="checkbox" id="customCheckbox2" >
                                                     @endif
                                                     <label for="customCheckbox2" class="custom-control-label">Tarde</label>
                                                 </div>
                                                 <div class="custom-control custom-checkbox">
-
                                                     @if($data->noche)
-                                                        <input class="custom-control-input" name="tarde" type="checkbox" id="customCheckbox3" checked>
+                                                        <input class="custom-control-input" name="noche" type="checkbox" id="customCheckbox3" checked>
+                                                    @else
+                                                        <input class="custom-control-input" name="noche" type="checkbox" id="customCheckbox3" >
                                                     @endif
                                                     <label for="customCheckbox3" class="custom-control-label">Noche</label>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>

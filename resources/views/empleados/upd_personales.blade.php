@@ -44,13 +44,13 @@
                                     <div class="form-group">
                                         <input type="hidden" name="empleado_id" value="{{$agente->id}}"  class="form-control">
                                         <label>Fecha de Nacimiento</label>
-                                        <input type="text" value="{{$data->fecha_nac}}" name="fecha_nac" data-mask="00/00/0000" class="form-control" placeholder="Enter ...">
+                                        <input type="text" value="{{$data->fecha_nac}}" name="fecha_nac" data-mask="0000-00-00" class="form-control" placeholder="Enter ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>Estado Civil</label>
-                                        <input type="text" value="{{$data->estado_civil}}" name="estado_civil" class="form-control" placeholder="Enter ...">
+                                        {!! Form::select('estado_civil', [''=>'','1'=>'Soltero/a','2'=>'Casado/a','3'=>'Concubino/a'] ,  $data->estado_civil, ['class' => 'form-control','autocomplete'=> 'off'])!!}
                                     </div>
                                 </div>
                             </div>
@@ -58,19 +58,13 @@
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>Permiso para conducir</label>
-                                        <select name="permiso" value="{{$data->permiso}}"  class="form-control">
-                                            <option>Si </option>
-                                            <option>No </option>
-                                        </select>
+                                        {!! Form::select('permiso', [''=>'','1'=>'Si','2'=>'No'] ,  $data->permiso, ['class' => 'form-control','autocomplete'=> 'off'])!!}
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>Sexo</label>
-                                        <select name="sexo" class="form-control">
-                                            <option value="M">Masculino </option>
-                                            <option value="F">Femenino </option>
-                                        </select>
+                                        {!! Form::select('sexo', [''=>'','M'=>'Masculino','F'=>'Femenino'] ,  $data->sexo, ['class' => 'form-control','autocomplete'=> 'off'])!!}
                                     </div>
                                 </div>
                             </div>
@@ -191,10 +185,7 @@
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label>Vive en pareja?</label>
-                                                <select name="pareja" value="{{$data->pareja}}"  class="form-control">
-                                                    <option>Si </option>
-                                                    <option>No </option>
-                                                </select>
+                                                {!! Form::select('pareja', ['Si'=>'Si','No'=>'No'] ,  $data->pareja, ['class' => 'form-control'])!!}
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
@@ -216,6 +207,39 @@
                                                 <label>Hijos mayores de 18?</label>
                                                 <input type="text" value="{{$data->mayores}}" name="mayores" data-mask="00" class="form-control" placeholder="Enter ...">
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Familiares a cargo</h3>
+                                                </div>
+                                                <!-- /.card-header -->
+                                                <div class="card-body p-0">
+                                                    <table class="table table-sm">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Apellido y Nombre</th>
+                                                            <th>Fecha Nacimiento</th>
+                                                            <th>DNI</th>
+                                                        </tr>
+                                                        </thead>
+                                                        @foreach($familiares as $row)
+                                                            <tr>
+                                                                <td>{{ $row->apynof }}</td>
+                                                                <td>{{ $row->fecnaf }}</td>
+                                                                <td>{{ $row->documf }}</td>
+                                                            </tr>
+                                                        @endforeach
+                                                        <tbody>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- /.card-body -->
+                                            </div>
+                                            <!-- /.card -->
                                         </div>
                                     </div>
                                     <div class="card-header">

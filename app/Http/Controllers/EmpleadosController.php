@@ -7,9 +7,12 @@ use App\Area;
 use App\Biometria;
 use App\Cargo;
 use App\CargoRevista;
+use App\Familia;
+use App\Licencia;
 use App\Personal;
 use App\Revista;
 use App\Salud;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use File;
 
@@ -26,21 +29,28 @@ class EmpleadosController extends Controller
         return view('empleados.step1');
     }
 
+    public $posta= '<i class="fas fa-check"></i>';
+
     public function salud($id)
     {
         $agente = Agente::find($id);
 
         $data = Salud::where('empleado_id','=',$id)->first();
 
+        $licencias = Licencia::where('NCOBRO','=',$id)->select('FDESDE','FHASTA','DIAGNO','CODLRM')->orderBy('id','DESC')->take(10)->get();
+
+
         if($data != null ){
 
-            return view('empleados.upd_salud',compact('agente','data'));
+            return view('empleados.upd_salud',compact('agente','data','licencias'));
         }
 
-        return view('empleados.salud',compact('agente'));
+        return view('empleados.salud',compact('agente','licencias'));
     }
 
     public function ssalud(Request $request){
+
+        Agente::find($request->empleado_id)->update(['posta1'=>$this->posta]);
 
         Salud::create($request->all());
 
@@ -63,16 +73,20 @@ class EmpleadosController extends Controller
 
         $agente = Agente::find($id);
         $data = Personal::where('empleado_id','=',$id)->first();
+        $familiares = Familia::where('nrouag','=',$id)->get();
+
 
         if($data != null ){
-            return view('empleados.upd_personales',compact('agente','data'));
+            return view('empleados.upd_personales',compact('agente','data','familiares'));
         }
 
-        return view('empleados.personales',compact('agente'));
+        return view('empleados.personales',compact('agente','familiares'));
     }
 
     //create datos personales
     public function spersonal(Request $request){
+
+        Agente::find($request->empleado_id)->update(['posta2'=>$this->posta]);
 
         Personal::create($request->all());
 
@@ -93,17 +107,14 @@ class EmpleadosController extends Controller
     }
 
 
-
     public function biometrico($id){
 
         $agente = Agente::find($id);
-
         $images = Biometria::where('empleado_id','=',$id)->get();
 
         return view('empleados.biometrico',compact('agente','images'));
 
     }
-
 
     public function sbiometrico(Request $request, $id){
 
@@ -166,12 +177,11 @@ class EmpleadosController extends Controller
         $cargo = Cargo::find($id);
         $cargo->delete();
 
-        return redirect()->route('cargo',[session('agente_id')])->withSuccess('Datos actualizados');
+        return redirect()->route('formacion',[session('agente_id')])->withSuccess('Datos actualizados');
 
     }
 
     public function revista($id){
-
 
         $revista =  ['' => ''] + Revista::orderBy('nombre','desc')->pluck('nombre','id')->all();
         $agente = Agente::find($id);
@@ -183,15 +193,20 @@ class EmpleadosController extends Controller
 
         $data = CargoRevista::where('empleado_id','=',$id)->first();
 
+        $conceptos = $this->getConceptos($id);
+
         if($data != null ){
 
-            return view('empleados.upd_revista',compact('agente','data','revista','sub','cargo_sub','areas'));
+            return view('empleados.upd_revista',compact('agente','data','revista','sub','cargo_sub','areas','conceptos'));
         }
 
-        return view('empleados.revista',compact('agente','revista','areas','sub','cargo_sub'));
+        return view('empleados.revista',compact('agente','revista','areas','sub','cargo_sub','conceptos'));
     }
 
     public function srevista(Request  $request){
+
+        Agente::find($request->empleado_id)->update(['posta3'=>$this->posta]);
+
 
         CargoRevista::create($request->all());
 
@@ -234,6 +249,101 @@ class EmpleadosController extends Controller
         }
 
         return 'Sin informacion';
+
+    }
+
+    public function printPDF(){
+
+
+        $pdf = PDF::loadView('pdf.invoice', $data);
+        return $pdf->download('invoice.pdf');
+    }
+
+    public function getConceptos($id){
+
+        $agente = Agente::find($id);
+
+        $conceptos= array();
+
+        if($agente->CPT001	!= null ){
+            array_push($conceptos,"BASICO");
+        }
+        if($agente->CPT010	!= null ){
+            array_push($conceptos,'COMPENSACION JERARQUICA');
+        }
+        if($agente->CPT012	!= null ){
+            array_push($conceptos,'ASIG.RECOMPOS.ESCAL.O.7821');
+        }
+        if($agente->CPT013	!= null ){
+            array_push($conceptos,'PROMOCION ART.147');
+        }
+        if($agente->CPT020	!= null ){
+            array_push($conceptos,'COMPENSACION TECNICA');
+        }
+        if($agente->CPT040	!= null ){
+            array_push($conceptos,'BONIF.ESPECIAL (BCO+CJ)RES.763');
+        }
+
+        if($agente->CPT041	!= null ){
+            array_push($conceptos,'BONIF.ESPECIAL (BASICO)RES.763');
+        }
+        if($agente->CPT080	!= null ){
+            array_push($conceptos,'TITULO SECUNDARIO');
+        }
+        if($agente->CPT085	!= null ){
+            array_push($conceptos,'TITULO TERCIARIO/UNIVERSITARIO');
+        }
+        if($agente->CPT130	!= null ){
+            array_push($conceptos,'RIESGO DE CAJA');
+        }
+        if($agente->CPT140	!= null ){
+            array_push($conceptos,'RIESGO DE SALUD');
+        }
+        if($agente->CPT150	!= null ){
+            array_push($conceptos,'OPERADOR DE APLICACION');
+        }
+        if($agente->CPT151	!= null ){
+            array_push($conceptos,'OPERADOR DE SISTEMAS');
+        }
+        if($agente->CPT152	!= null ){
+            array_push($conceptos,'PROGRAMADOR');
+        }
+        if($agente->CPT154	!= null ){
+            array_push($conceptos,'ANALISTA');
+        }
+        if($agente->CPT160	!= null ){
+            array_push($conceptos,'INCOMPATIBILIDAD');
+        }
+        if($agente->CPT170	!= null ){
+            array_push($conceptos,'INSALUBRIDAD');
+        }
+        if($agente->CPT171	!= null ){
+            array_push($conceptos,'BONIF.EX COMBATIENTES O.10534');
+        }
+        if($agente->CPT175	!= null ){
+            array_push($conceptos,'RIESGO DE VIDA');
+        }
+        if($agente->CPT185	!= null ){
+            array_push($conceptos,'MJO.EQUIPO INFORMATICO');
+        }
+        if($agente->CPT186	!= null ){
+            array_push($conceptos,'ADICIONAL TAREA PENOSA');
+        }
+        if($agente->CPT190	!= null ){
+            array_push($conceptos,'TAREA NOCTURNA');
+        }
+        if($agente->CPT275	!= null ){
+            array_push($conceptos,'MAYOR DED. 40%');
+        }
+        if($agente->CPT276	!= null ){
+            array_push($conceptos,'DEDIC.PERMANENTE 60%');
+        }
+
+
+        return $conceptos;
+
+
+
 
     }
 

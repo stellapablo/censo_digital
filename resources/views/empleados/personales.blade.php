@@ -43,13 +43,13 @@
                                     <input type="hidden" name="empleado_id" value="{{$agente->id}}"  class="form-control">
                                     <div class="form-group">
                                         <label>Fecha de Nacimiento</label>
-                                        <input type="text" name="fecha_nac" data-mask="00/00/0000" class="form-control" placeholder="Enter ...">
+                                        <input type="text" name="fecha_nac" data-mask="0000-00-00"  value="{{$agente->FECNAC}}"class="form-control" placeholder="Enter ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>Estado Civil</label>
-                                        <input type="text" name="estado_civil" class="form-control" placeholder="Enter ...">
+                                        {!! Form::select('estado_civil', [''=>'','1'=>'Soltero/a','2'=>'Casado/a','3'=>'Concubino/a'] ,  null, ['class' => 'form-control','autocomplete'=> 'off'])!!}
                                     </div>
                                 </div>
                             </div>
@@ -73,6 +73,8 @@
                                     </div>
                                 </div>
                             </div>
+
+
                             <!-- general form elements disabled -->
                             <div class="card card-secondary">
                                 <div class="card-header">
@@ -96,7 +98,7 @@
                                             <div class="col-sm-4">
                                                 <div class="form-group">
                                                     <label>Calle</label>
-                                                    <input type="text" name="calle" class="form-control" placeholder="Enter ...">
+                                                    <input type="text" name="calle" class="form-control"  value="{{ $agente->DOMICI  }}" placeholder="Enter ...">
                                                 </div>
                                             </div>
                                             <div class="col-sm-4">
@@ -213,6 +215,39 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Familiares a cargo</h3>
+                                                </div>
+                                                <!-- /.card-header -->
+                                                <div class="card-body p-0">
+                                                    <table class="table table-sm">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Apellido y Nombre</th>
+                                                            <th>Fecha Nacimiento</th>
+                                                            <th>DNI</th>
+                                                        </tr>
+                                                        </thead>
+                                                        @foreach($familiares as $row)
+                                                            <tr>
+                                                                <td>{{ $row->apynof }}</td>
+                                                                <td>{{ $row->fecnaf }}</td>
+                                                                <td>{{ $row->documf }}</td>
+                                                            </tr>
+                                                        @endforeach
+                                                        <tbody>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- /.card-body -->
+                                            </div>
+                                            <!-- /.card -->
+                                        </div>
+                                    </div>
                                     <div class="card-header">
                                         <h3 class="card-title">Seguro de vida</h3>
                                     </div>
@@ -244,6 +279,9 @@
                                 <!-- /.card-body -->
                             </div>
                             <!-- /.card -->
+
+
+
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-default" >Cancelar</button>
                                 <button type="submit" class="btn btn-success float-right">Guardar</button>

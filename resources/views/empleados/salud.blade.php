@@ -23,7 +23,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <!-- general form elements disabled -->
                 <div class="card card-warning">
                     <div class="card-header">
@@ -78,7 +78,7 @@
                             <!-- general form elements disabled -->
                             <div class="card card-secondary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Consulta</h3>
+                                    <h3 class="card-title">VACUNACIÓN</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
@@ -184,7 +184,38 @@
                     <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
-
+            </div>
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Ultimas licencias Medicas</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <table class="table table-sm">
+                            <thead>
+                            <tr>
+                                <th>Diagnóstico</th>
+                                <th>Desde</th>
+                                <th>Hasta</th>
+                                <th>CODLRM</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($licencias as $row)
+                                <tr>
+                                    <td>{{ $row->DIAGNO }}</td>
+                                    <td>{{ $row->FDESDE }}</td>
+                                    <td>{{ $row->FDESDE }}</td>
+                                    <td>{{ $row->CODLRM }}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
             </div>
         </div>
     </div>

@@ -69,7 +69,7 @@
                                 <!-- /.card-header -->
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-6">
                                             <div class="callout callout-info">
                                                     <h5>Subrogancia</h5>
                                                     <p>Subroga: {{ $sub }}</p>
@@ -78,7 +78,19 @@
                                                     <p>Lugar de trabajo: {{ $agente->DENARE }}</p>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-6">
+                                            <div class="callout callout-info">
+                                                <h5>CONCEPTOS Y LIQUIDACIONES</h5>
+                                                <ul>
+                                                    @foreach($conceptos as $row)
+                                                        <li>{{ $row }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
                                             <h5>Datos que no se encuentran en sistema, pero son declarados por el Agente. </h5>
                                             <div class="form-group">
                                                 <label>Subroga en:</label>
@@ -89,7 +101,7 @@
                                                 {!! Form::select('trabaja_en', $areas ,  null, ['class' => 'form-control','autocomplete'=> 'off'])!!}
                                             </div>
                                         </div>
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-6">
                                             <h5>Horario de trabajo</h5>
                                             <!-- checkbox -->
                                             <div class="form-group">

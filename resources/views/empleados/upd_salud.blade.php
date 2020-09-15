@@ -79,7 +79,7 @@
                             <!-- general form elements disabled -->
                             <div class="card card-secondary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Consulta</h3>
+                                    <h3 class="card-title">VACUNACIÓN</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
@@ -88,7 +88,7 @@
                                             <!-- checkbox -->
                                             <div class="form-group">
                                                 <!-- <h5 class="mt-4 mb-2">Enfermedades</h5> -->
-                                                <div class="custom-control custom-checkbox">
+                                                 <div class="custom-control custom-checkbox">
                                                     @if($data->hipertension)
                                                         <input class="custom-control-input" name="hipertension" type="checkbox" id="customCheckbox1" checked>
                                                     @else
