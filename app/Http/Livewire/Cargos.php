@@ -12,6 +12,7 @@ class Cargos extends Component{
     public $newCargo;
     public $nivel;
     public $formacion;
+    public $posta = '<i class="fas fa-check"></i>';
 
     public function addCargo(){
 
@@ -24,6 +25,7 @@ class Cargos extends Component{
             'empleado_id' => session('agente_id'),
         ]);
         $this->newCargo = "";
+        Agente::where('NROUAG','=',session('agente_id'))->update(['posta4'=>$this->posta]);
 
 
         session()->flash('message', 'Comment added successfully 😁');
@@ -43,6 +45,7 @@ class Cargos extends Component{
         $agente = Agente::find(session('agente_id'))->first();
         $cargos = Cargo::where('empleado_id','=',session('agente_id'))->orderBy('nivel_id','DESC')->get();
         $titulo = Titulo::where('codigo','=',session('agente_titulo'))->first();
+
 
         $niveles =  [''=>'','Sin formacion'=>'Sin formacion','Secundario'=>'Secundario','Terciario'=>'Terciario','Universitario'=>'Universitario'] ;
 

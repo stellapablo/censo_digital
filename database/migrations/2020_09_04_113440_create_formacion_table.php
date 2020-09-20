@@ -15,6 +15,10 @@ class CreateFormacionTable extends Migration
     {
         Schema::create('formacion', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre')->nullable();
+            $table->integer('empleado_id')->index()->nullable();
+            $table->string('formacion_id')->index()->nullable();
+            $table->string('nivel_id')->index()->nullable();
             $table->timestamps();
         });
     }

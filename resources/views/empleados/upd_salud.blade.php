@@ -23,7 +23,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <!-- general form elements disabled -->
                 <div class="card card-warning">
                     <div class="card-header">
@@ -38,7 +38,7 @@
                         @endif
                         <form action="{{ route('empleados.usalud') }}" method="POST" >
                             {{ csrf_field() }}
-                            <input type="hidden" name="empleado_id" value="{{$agente->id}}"  class="form-control" placeholder="Enter ...">
+                            <input type="hidden" name="empleado_id" value="{{$agente->nrouag}}"  class="form-control" placeholder="Enter ...">
                             <div class="row">
                                 <div class="col-sm-3">
                                     <div class="form-group">
@@ -227,11 +227,10 @@
 
                                         </div>
                                     </div>
-
-
                                 </div>
                                 <!-- /.card-body -->
                             </div>
+
                             <!-- /.card -->
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-default" >Cancelar</button>
@@ -243,6 +242,38 @@
                 </div>
                 <!-- /.card -->
 
+            </div>
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Ultimas licencias Medicas</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <table class="table table-sm">
+                            <thead>
+                            <tr>
+                                <th>Diagnóstico</th>
+                                <th>Desde</th>
+                                <th>Hasta</th>
+                                <th>CODLRM</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($licencias as $row)
+                                <tr>
+                                    <td>{{ $row->DIAGNO }}</td>
+                                    <td>{{ $row->FDESDE }}</td>
+                                    <td>{{ $row->FDESDE }}</td>
+                                    <td>{{ $row->CODLRM }}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
             </div>
         </div>
     </div>

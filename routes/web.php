@@ -53,6 +53,8 @@ Route::prefix('empleados')->group(function () {
     Route::get('formacion/delete/{id}', 'EmpleadosController@deleteCargo')->name('delete.formacion');
 
 
+    Route::get('imprimir/{id}', 'EmpleadosController@imprimir')->name('imprimir');
+
 });
 
 Route::get('datatable/agentes','AgentesController@agentes')->name('datatable.agentes');

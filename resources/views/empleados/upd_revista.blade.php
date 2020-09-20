@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Agentes</a></li>
-                        <li class="breadcrumb-item active">Situacion de Revista</li>
+                        <li class="breadcrumb-item active">Datos del Cargo</li>
                     </ol>
                 </div>
             </div>
@@ -42,8 +42,8 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Situacion de revista</label>
-                                        <input type="hidden" name="empleado_id" value="{{$agente->id}}"  class="form-control">
-                                        {!! Form::select('revista_id', $revista ,  $data->revista_id, ['class' => 'form-control','autocomplete'=> 'off'])!!}
+                                        <input type="hidden" name="empleado_id" value="{{$agente->nrouag}}"  class="form-control">
+                                        <p>{{ $revista }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -73,31 +73,31 @@
                                             <div class="callout callout-info">
                                                 <h5>Subrogancia</h5>
                                                 <p>Subroga: {{ $sub }}</p>
-                                                <p>Categoria: {{ $cargo_sub }}</p>
                                                 <h5>Cargo de base</h5>
                                                 <p>Lugar de trabajo: {{ $agente->DENARE }}</p>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="callout callout-info">
-                                                <h5>CONCEPTOS Y LIQUIDACIONES</h5>
+                                                <h5>OTROS CONCEPTOS</h5>
                                                 <ul>
-                                                @foreach($conceptos as $row)
-                                                    <li>{{ $row }}</li>
-                                                @endforeach
+                                                    @foreach($conceptos as $row)
+                                                        <li>{{ $row }}</li>
+                                                    @endforeach
                                                 </ul>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-sm-6">
-                                            <h5>Datos que no se encuentran en sistema, pero son declarados por el Agente. </h5>
-                                            <div class="form-group">
-                                                <label>Subroga en:</label>
-                                                <input type="text" class="form-control" value="{{ $data->subroga_en }}" name="subroga_en" >
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Lugar fisico de trabajo</label>
-                                                {!! Form::select('trabaja_en', $areas ,  $data->trabaja_en , ['class' => 'form-control','autocomplete'=> 'off'])!!}
-                                            </div>
+                                                <div class="form-group">
+                                                    <label>Subroga por:</label>
+                                                    <input type="text" class="form-control" value="{{ $data->subroga_en }}" name="subroga_en" >
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Lugar fisico de trabajo</label>
+                                                    {!! Form::select('trabaja_en', $areas ,  $data->trabaja_en , ['class' => 'form-control','autocomplete'=> 'off'])!!}
+                                                </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <h5>Horario de trabajo</h5>
@@ -110,7 +110,7 @@
                                                     @else
                                                         <input class="custom-control-input" name="mañana" type="checkbox" id="customCheckbox1" >
                                                     @endif
-                                                    <label for="customCheckbox2" class="custom-control-label">Mañana</label>
+                                                    <label for="customCheckbox1" class="custom-control-label">Mañana</label>
                                                 </div>
                                                 <div class="custom-control custom-checkbox">
                                                     @if($data->tarde)
@@ -132,7 +132,7 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    </div>
                                 </div>
 
                                 <div class="card-footer">

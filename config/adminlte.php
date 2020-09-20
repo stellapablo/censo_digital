@@ -243,7 +243,7 @@ return [
         ],
 
         [
-            'text'        => 'Empleados',
+            'text'        => 'Agentes',
             'url'         => 'empleados',
             'icon'        => 'far fa-fw fa-file',
             'label_color' => 'success',

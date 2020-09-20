@@ -8,13 +8,18 @@ use App\Biometria;
 use App\Cargo;
 use App\CargoRevista;
 use App\Familia;
+use App\Invoice;
+use App\InvoiceDetail;
 use App\Licencia;
 use App\Personal;
+use App\Reloj;
 use App\Revista;
 use App\Salud;
 use Barryvdh\DomPDF\PDF;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use File;
+use Illuminate\Support\Facades\Date;
 
 class EmpleadosController extends Controller
 {
@@ -33,11 +38,11 @@ class EmpleadosController extends Controller
 
     public function salud($id)
     {
-        $agente = Agente::find($id);
+        $agente = Agente::where('NROUAG','=',$id)->first();
 
         $data = Salud::where('empleado_id','=',$id)->first();
 
-        $licencias = Licencia::where('NCOBRO','=',$id)->select('FDESDE','FHASTA','DIAGNO','CODLRM')->orderBy('id','DESC')->take(10)->get();
+        $licencias = Licencia::where('NROUAG','=',$id)->select('FDESDE','FHASTA','DIAGNO','CODLRM')->orderBy('id','DESC')->take(10)->get();
 
 
         if($data != null ){
@@ -50,7 +55,7 @@ class EmpleadosController extends Controller
 
     public function ssalud(Request $request){
 
-        Agente::find($request->empleado_id)->update(['posta1'=>$this->posta]);
+        Agente::where('NROUAG','=',$request->empleado_id)->update(['posta1'=>$this->posta]);
 
         Salud::create($request->all());
 
@@ -71,7 +76,7 @@ class EmpleadosController extends Controller
 
     public function personal($id){
 
-        $agente = Agente::find($id);
+        $agente = Agente::where('nrouag','=',$id)->first();
         $data = Personal::where('empleado_id','=',$id)->first();
         $familiares = Familia::where('nrouag','=',$id)->get();
 
@@ -86,7 +91,7 @@ class EmpleadosController extends Controller
     //create datos personales
     public function spersonal(Request $request){
 
-        Agente::find($request->empleado_id)->update(['posta2'=>$this->posta]);
+        Agente::where('NROUAG','=',$request->empleado_id)->update(['posta2'=>$this->posta]);
 
         Personal::create($request->all());
 
@@ -109,7 +114,7 @@ class EmpleadosController extends Controller
 
     public function biometrico($id){
 
-        $agente = Agente::find($id);
+        $agente = Agente::where('nrouag','=',$id)->get();
         $images = Biometria::where('empleado_id','=',$id)->get();
 
         return view('empleados.biometrico',compact('agente','images'));
@@ -162,9 +167,9 @@ class EmpleadosController extends Controller
 
     public function formacion($id){
 
-        $agente = Agente::find($id);
+        $agente = Agente::where('nrouag','=',$id)->first();
 
-        session(['agente_id' => $id]);
+        session(['agente_id' => $agente->nrouag]);
         session(['agente_nya' => $agente->APYNOM]);
         session(['agente_dni' => $agente->DOCUME]);
         session(['agente_titulo' => $agente->TITULO]);
@@ -183,9 +188,10 @@ class EmpleadosController extends Controller
 
     public function revista($id){
 
-        $revista =  ['' => ''] + Revista::orderBy('nombre','desc')->pluck('nombre','id')->all();
-        $agente = Agente::find($id);
-        $areas = ['' => ''] + Area::orderBy('are_des')->pluck('are_des','are_nro')->all();
+        $agente = Agente::where('nrouag','=',$id)->first();
+        $revista = Revista::find($agente->SITREV)->nombre;
+
+        $areas = ['' => ''] + Reloj::orderBy('LUGAR')->pluck('LUGAR','CODIGO')->all();
 
         //subroga
         $sub = $this->checkSubr($agente);
@@ -205,8 +211,7 @@ class EmpleadosController extends Controller
 
     public function srevista(Request  $request){
 
-        Agente::find($request->empleado_id)->update(['posta3'=>$this->posta]);
-
+        Agente::where('NROUAG','=',$request->empleado_id)->update(['posta3'=>$this->posta]);
 
         CargoRevista::create($request->all());
 
@@ -226,7 +231,7 @@ class EmpleadosController extends Controller
     public function checkSubr(Agente $agente){
 
         if($agente->SUBRGR <> 0){
-            return "Si";
+            return "SI " . "GRUPO NRO: " .$agente->GRUPO;
         }else{
             return "No";
         }
@@ -252,16 +257,25 @@ class EmpleadosController extends Controller
 
     }
 
-    public function printPDF(){
+    public function imprimir($id){
+
+        $agente = Agente::where('nrouag','=',$id)->first();
+
+        $fecha = Carbon::now();
+
+        $view = \View::make('empleados.print', compact('agente','fecha'))->render();
+        $pdf = \App::make('dompdf.wrapper');
+
+        $pdf->loadHTML($view);
+
+        return $pdf->stream('certificado'.$agente->nrouag.'.pdf');
 
 
-        $pdf = PDF::loadView('pdf.invoice', $data);
-        return $pdf->download('invoice.pdf');
     }
 
     public function getConceptos($id){
 
-        $agente = Agente::find($id);
+        $agente = Agente::where('nrouag','=',$id)->first();
 
         $conceptos= array();
 

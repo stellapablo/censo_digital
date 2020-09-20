@@ -1,7 +1,13 @@
 <form wire:submit="addCargo" >
     <br class="card-body">
         <div class="card-header">
-            <h4>DECLARADO: {{ $titulo->Carrera }}</h4>
+            <h4>DECLARADO:
+                @if( $titulo == NULL)
+                    {{ 'Sin titulo registrado' }}
+                @else
+                    {{ $titulo->Carrera }}
+                @endif
+            </h4>
         </div>
         </br>
         @error('newCargo') <span class="text-red">{{ $message }}</span> @enderror

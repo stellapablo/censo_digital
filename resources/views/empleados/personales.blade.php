@@ -40,7 +40,7 @@
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <input type="hidden" name="empleado_id" value="{{$agente->id}}"  class="form-control">
+                                    <input type="hidden" name="empleado_id" value="{{$agente->nrouag}}"  class="form-control">
                                     <div class="form-group">
                                         <label>Fecha de Nacimiento</label>
                                         <input type="text" name="fecha_nac" data-mask="0000-00-00"  value="{{$agente->FECNAC}}"class="form-control" placeholder="Enter ...">
@@ -263,7 +263,7 @@
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox">
                                             <input class="custom-control-input" name="obra_social" type="checkbox" id="customCheckbox4">
-                                            <label for="customCheckbox4" class="custom-control-label">OBRA SOCIAL: Declaro que necesito ser citado para modificar los los datos de las personas que están a cargo en mi obra social.  </label>
+                                            <label for="customCheckbox4" class="custom-control-label">OBRA SOCIAL: Declaro que necesito ser citado para modificar los datos de las personas que están a cargo en mi obra social.  </label>
                                         </div>
                                     </div>
                                     <div class="card-header">

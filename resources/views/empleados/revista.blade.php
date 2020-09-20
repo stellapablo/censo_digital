@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Agentes</a></li>
-                        <li class="breadcrumb-item active">Situacion de Revista</li>
+                        <li class="breadcrumb-item active">Datos del Cargo</li>
                     </ol>
                 </div>
             </div>
@@ -39,11 +39,11 @@
                         <form action="{{ route('empleados.srevista') }}" method="POST" >
                             {{ csrf_field() }}
                             <div class="row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>Situacion de revista</label>
-                                        <input type="hidden" name="empleado_id" value="{{$agente->id}}"  class="form-control">
-                                        {!! Form::select('revista_id', $revista ,  $agente->SITREV, ['class' => 'form-control','autocomplete'=> 'off'])!!}
+                                        <input type="hidden" name="empleado_id" value="{{$agente->nrouag}}"  class="form-control">
+                                        <p>{{ $revista }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -72,15 +72,14 @@
                                         <div class="col-sm-6">
                                             <div class="callout callout-info">
                                                     <h5>Subrogancia</h5>
-                                                    <p>Subroga: {{ $sub }}</p>
-                                                    <p>Categoria: {{ $cargo_sub }}</p>
+                                                    <p>Subroga: <strong>{{ $sub }}</strong></p>
                                                     <h5>Cargo de base</h5>
                                                     <p>Lugar de trabajo: {{ $agente->DENARE }}</p>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="callout callout-info">
-                                                <h5>CONCEPTOS Y LIQUIDACIONES</h5>
+                                                <h5>OTROS CONCEPTOS</h5>
                                                 <ul>
                                                     @foreach($conceptos as $row)
                                                         <li>{{ $row }}</li>
@@ -91,9 +90,8 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <h5>Datos que no se encuentran en sistema, pero son declarados por el Agente. </h5>
                                             <div class="form-group">
-                                                <label>Subroga en:</label>
+                                                <label>Subroga por:</label>
                                                 <input type="text" class="form-control" name="subroga_en" placeholder="Enter ...">
                                             </div>
                                             <div class="form-group">

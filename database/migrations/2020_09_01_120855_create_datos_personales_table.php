@@ -15,7 +15,7 @@ class CreateDatosPersonalesTable extends Migration
     {
         Schema::create('datos_personales', function (Blueprint $table) {
             $table->id();
-            $table->string('empleado_id')->index()->nullable();
+            $table->integer('empleado_id')->index()->nullable();
             $table->string('fecha_nac')->nullable();
             $table->string('estado_civil')->nullable();
             $table->string('residencia')->nullable();

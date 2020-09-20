@@ -38,7 +38,7 @@
                         @endif
                         <form action="{{ route('empleados.ssalud') }}" method="POST" >
                             {{ csrf_field() }}
-                            <input type="hidden" name="empleado_id" value="{{$agente->id}}"  class="form-control" placeholder="Enter ...">
+                            <input type="hidden" name="empleado_id" value="{{$agente->nrouag}}"  class="form-control" placeholder="Enter ...">
                             <div class="row">
                                 <div class="col-sm-3">
                                     <div class="form-group">
