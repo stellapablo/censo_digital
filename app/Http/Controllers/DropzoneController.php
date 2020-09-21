@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class DropzoneController extends Controller{
 
-    function upload(Request $request){
+    public function upload(Request $request){
         $image = $request->file('file');
         $imageName = time() . '.' . $image->extension();
         $image->move(public_path('images'), $imageName);
@@ -24,9 +24,8 @@ class DropzoneController extends Controller{
         foreach($images as $image)
         {
             $output .= '
-            <div class="col-md-2" style="margin-bottom:16px;" align="center">
+            <div class="col-md-2" style="margin: 1em;">
                 <img src="'.asset('images/' . $image->imagen).'" class="img-thumbnail" width="175" height="175" style="height:175px;" />
-                <button type="button" class="btn btn-link remove_image" id="'.$image->imagen.'"></button>
             </div>';
         }
         $output .= '</div>';

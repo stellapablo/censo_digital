@@ -11,4 +11,7 @@ class Salud extends Model
     protected $fillable = ['empleado_id','frecuencia_cardiaca','frecuencia_respiratoria','temperatura','altura','peso','hipertension',
         'diabetes','agudas','antitetanica','hepa','hepb','antigripal','def_auditivas','def_visual','discapacidad','preocupacional','observaciones','consulta','posta'];
 
+    public function agente(){
+        return $this->belongsTo('App\Agente','NROUAG','empleado_id');
+    }
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Presupuesto</title>
+    <title>Declaracion Jurada</title>
     <link rel="stylesheet" href="{{ url('invoice/style.css') }}" media="all" />
 </head>
 <body>
@@ -23,7 +23,7 @@
     <hr>
     <div id="details" class="clearfix">
         <ul>
-            <li>Frecuencia Cardíaca: [DATOS]</li>
+            <li>Frecuencia Cardíaca: {{ $salud->frecuencia_cardiaca }}</li>
             <li>Frecuencia Respiratoria: [DATOS]</li>
             <li>Temperatura: [DATOS]</li>
             <li>Altura: [DATOS] - Peso: [DATOS] Índice de Masa corporal: [DATOS]</li>

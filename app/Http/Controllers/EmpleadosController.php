@@ -114,7 +114,7 @@ class EmpleadosController extends Controller
 
     public function biometrico($id){
 
-        $agente = Agente::where('nrouag','=',$id)->get();
+        $agente = Agente::where('nrouag','=',$id)->first();
         $images = Biometria::where('empleado_id','=',$id)->get();
 
         return view('empleados.biometrico',compact('agente','images'));
@@ -259,11 +259,13 @@ class EmpleadosController extends Controller
 
     public function imprimir($id){
 
-        $agente = Agente::where('nrouag','=',$id)->first();
+        $agente = Agente::where('NROUAG','=',$id)->first();
+
+        $salud = Salud::where('empleado_id','=',$id)->first();
 
         $fecha = Carbon::now();
 
-        $view = \View::make('empleados.print', compact('agente','fecha'))->render();
+        $view = \View::make('empleados.print', compact('agente','fecha','salud'))->render();
         $pdf = \App::make('dompdf.wrapper');
 
         $pdf->loadHTML($view);

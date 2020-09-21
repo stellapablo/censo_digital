@@ -32,9 +32,9 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form method="post" action="{{route('empleados.sbiometrico',$agente->id)}}" enctype="multipart/form-data"
+                        <form method="post" action="{{route('empleados.sbiometrico',$agente->nrouag)}}" enctype="multipart/form-data"
                               class="dropzone" id="dropzone">
-                            <input type="hidden" value="{{ $agente->id }}" name="empĺeado_id">
+                            <input type="hidden" value="{{ $agente->nrouag }}" name="empĺeado_id">
                             @csrf
                         </form>
                         <br />
@@ -42,9 +42,9 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title">Archivos</h3>
                             </div>
-                            <div class="panel-body" id="uploaded_image">
+                            <div class="row" id="uploaded_image">
                                 @foreach($images as $image)
-                                    <div class="col-md-2" style="margin-bottom:16px;" align="center">
+                                    <div class="col-md-2" style="margin: 1em; " >
                                         <img src="{{ asset('images/' . $image->imagen) }}" class="img-thumbnail" width="175" height="175" style="height:175px;" />
                                     </div>
                                 @endforeach
@@ -61,7 +61,7 @@
                                     this.on("removedfile", function (file) {
                                         $.post({
                                             url: 'image/delete',
-                                            data: {nombre: file.name, id: {{ $agente->id }},_token: $('[name="_token"]').val()},
+                                            data: {nombre: file.name, id: {{ $agente->nrouag }},_token: $('[name="_token"]').val()},
                                             dataType: 'json',
                                             success: function (data) {
                                                 $('#uploaded_image').html(data);
@@ -89,7 +89,7 @@
                             {
                                 $.ajax({
                                     url:"{{ route('dropzone.fetch') }}",
-                                    data: {id: {{ $agente->id }},_token: $('[name="_token"]').val()},
+                                    data: {id: {{ $agente->nrouag }},_token: $('[name="_token"]').val()},
                                     success:function(data)
                                     {
                                         $('#uploaded_image').html(data);
