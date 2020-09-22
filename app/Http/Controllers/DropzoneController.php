@@ -25,7 +25,8 @@ class DropzoneController extends Controller{
         {
             $output .= '
             <div class="col-md-2" style="margin: 1em;">
-                <img src="'.asset('images/' . $image->imagen).'" class="img-thumbnail" width="175" height="175" style="height:175px;" />
+                <img src="'.asset('images/' . $image->imagen).'" class="img-thumbnail" width="175" style="height:175px;" />
+                <a href="'. route('image.delete', [$image->imagen, $request->id])  .'" ><i style="margin:1em 4em; align-self: center" class="fa fa-trash"></i></a>
             </div>';
         }
         $output .= '</div>';
@@ -37,5 +38,12 @@ class DropzoneController extends Controller{
         if($request->get('name')) {
             File::delete(public_path('images/' . $request->get('name')));
         }
+    }
+
+    public function deleteImage($id,$nrouag){
+
+        Biometria::destroy($id);
+
+        return redirect()->route('biometrico',[$nrouag]);
     }
 }

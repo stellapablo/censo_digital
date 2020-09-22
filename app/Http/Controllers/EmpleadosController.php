@@ -15,6 +15,8 @@ use App\Personal;
 use App\Reloj;
 use App\Revista;
 use App\Salud;
+use App\Titulo;
+use App\Vacuna;
 use Barryvdh\DomPDF\PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -44,6 +46,8 @@ class EmpleadosController extends Controller
 
         $licencias = Licencia::where('NROUAG','=',$id)->select('FDESDE','FHASTA','DIAGNO','CODLRM')->orderBy('id','DESC')->take(10)->get();
 
+        $vacunas = Vacuna::where('DNI','=',$agente->DOCUME)->first();
+
 
         if($data != null ){
 
@@ -59,7 +63,7 @@ class EmpleadosController extends Controller
 
         Salud::create($request->all());
 
-        return redirect()->route('salud', ['id' => $request->empleado_id])->withSuccess('Datos Actualizados correctamente');
+        return redirect()->route('empleados')->withSuccess('Datos Actualizados correctamente');
     }
 
 
@@ -69,7 +73,7 @@ class EmpleadosController extends Controller
         $salud = Salud::where('empleado_id','=',$request->empleado_id)->first();
         $salud->fill($data)->save();
 
-        return redirect()->route('salud', ['id' => $request->empleado_id])->withSuccess('Datos Actualizados correctamente');
+        return redirect()->route('empleados')->withSuccess('Datos Actualizados correctamente');
 
     }
 
@@ -95,7 +99,7 @@ class EmpleadosController extends Controller
 
         Personal::create($request->all());
 
-        return redirect()->route('personal', ['id' => $request->empleado_id])->withSuccess('Datos Actualizados correctamente');
+        return redirect()->route('empleados')->withSuccess('Datos Actualizados correctamente');
 
     }
 
@@ -107,7 +111,7 @@ class EmpleadosController extends Controller
         $personal = Personal::where('empleado_id','=',$request->empleado_id)->first();
         $personal->fill($data)->save();
 
-        return redirect()->route('personal', ['id' => $request->empleado_id])->withSuccess('Datos Actualizados correctamente');
+        return redirect()->route('empleados')->withSuccess('Datos Actualizados correctamente');
 
     }
 
@@ -215,7 +219,7 @@ class EmpleadosController extends Controller
 
         CargoRevista::create($request->all());
 
-        return redirect()->route('revista', ['id' => $request->empleado_id])->withSuccess('Datos Actualizados correctamente');
+        return redirect()->route('empleados')->withSuccess('Datos Actualizados correctamente');
     }
 
     public function urevista(Request  $request){
@@ -225,7 +229,7 @@ class EmpleadosController extends Controller
         $personal = CargoRevista::where('empleado_id','=',$request->empleado_id)->first();
         $personal->fill($data)->save();
 
-        return redirect()->route('revista', ['id' => $request->empleado_id])->withSuccess('Datos Actualizados correctamente');
+        return redirect()->route('empleados')->withSuccess('Datos Actualizados correctamente');
     }
 
     public function checkSubr(Agente $agente){
@@ -262,10 +266,23 @@ class EmpleadosController extends Controller
         $agente = Agente::where('NROUAG','=',$id)->first();
 
         $salud = Salud::where('empleado_id','=',$id)->first();
+        $personal = Personal::where('empleado_id','=',$id)->first();
+        $familiares = Familia::where('nrouag','=',$id)->select('apynof','documf')->get();
+
+        $revista = Revista::find($agente->SITREV)->nombre;
+        $data = CargoRevista::where('empleado_id','=',$id)->first();
+        //subroga
+        $sub = $this->checkSubr($agente);
+
+        //formacion
+        $formacion = Cargo::where('empleado_id','=',$id)->orderBy('nivel_id','DESC')->get();
+        $titulo = Titulo::where('codigo','=',$agente->TITULO)->first();
+
 
         $fecha = Carbon::now();
 
-        $view = \View::make('empleados.print', compact('agente','fecha','salud'))->render();
+        $view = \View::make('empleados.print', compact('agente','fecha','salud','personal','familiares', 'revista','data','sub','formacion','titulo'))
+                                                ->render();
         $pdf = \App::make('dompdf.wrapper');
 
         $pdf->loadHTML($view);
@@ -359,8 +376,17 @@ class EmpleadosController extends Controller
         return $conceptos;
 
 
+    }
 
+    public function checkPostas($id){
 
+        $agente = Agente::where('NROUAG','=',$id)->first();
+
+        if($agente->posta1 != null & $agente->posta2 != null & $agente->posta3 != null & $agente->posta4 != null){
+            return $this->imprimir($id);
+        }
+
+        return redirect()->route('empleados')->withSuccess('Debe completar todas las postas para imprimir');
     }
 
 }

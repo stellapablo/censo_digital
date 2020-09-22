@@ -24,7 +24,12 @@
     <div class="row">
         <div class="col-sm-12   ">
             <div class="card">
-                <div class="card-header">
+                <div class="card-body">
+                    @if(Session::has('success'))
+                        <div class="alert alert-success">
+                            {{Session::get('success')}}
+                        </div>
+                    @endif
                 </div>
                 <!-- /.card-header -->
                 <div class="col-sm-12">

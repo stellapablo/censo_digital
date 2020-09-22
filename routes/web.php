@@ -27,7 +27,7 @@ Route::resource('users','UserController');
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::prefix('empleados')->group(function () {
-    Route::get('/', 'AgentesController@index')->name('agentes.index');
+    Route::get('/', 'AgentesController@index')->name('empleados');
     Route::get('biometrico/{id}', 'EmpleadosController@biometrico')->name('biometrico');
     Route::get('salud/{id}', 'EmpleadosController@salud')->name('salud');
     Route::get('personal/{id}', 'EmpleadosController@personal')->name('personal');
@@ -53,7 +53,7 @@ Route::prefix('empleados')->group(function () {
     Route::get('formacion/delete/{id}', 'EmpleadosController@deleteCargo')->name('delete.formacion');
 
 
-    Route::get('imprimir/{id}', 'EmpleadosController@imprimir')->name('imprimir');
+    Route::get('imprimir/{id}', 'EmpleadosController@checkPostas')->name('imprimir');
 
 });
 
@@ -62,6 +62,7 @@ Route::get('datatable/users','UserController@anyUsers')->name('datatable.users')
 
 
 //dropzone
+Route::get('dropzone/delete/{id}/{nrouag}', 'DropzoneController@deleteImage')->name('image.delete');
 Route::post('dropzone/upload', 'DropzoneController@upload')->name('dropzone.upload');
 Route::get('dropzone/fetch', 'DropzoneController@fetch')->name('dropzone.fetch');
 Route::get('dropzone/delete', 'DropzoneController@delete')->name('dropzone.delete');

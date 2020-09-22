@@ -44,8 +44,9 @@
                             </div>
                             <div class="row" id="uploaded_image">
                                 @foreach($images as $image)
-                                    <div class="col-md-2" style="margin: 1em; " >
-                                        <img src="{{ asset('images/' . $image->imagen) }}" class="img-thumbnail" width="175" height="175" style="height:175px;" />
+                                    <div class="col-md-2" >
+                                        <img src="{{ asset('images/' . $image->imagen) }}" class="img-thumbnail" width="175" style="height:175px;" />
+                                         <a href="{{ route('image.delete', [$image->id, $agente->nrouag]) }}" ><i style="margin:1em 4em; align-self: center"  class="fa fa-trash"></i></a>
                                     </div>
                                 @endforeach
                             </div>

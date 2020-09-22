@@ -37,6 +37,7 @@ class ComposerStaticInit00cac5469831c9b1caddfa652d128735
         '4a1f389d6ce373bda9e57857d3b61c84' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/helpers.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
         '0b47d6d4a00ca9112ba3953b49e7c9a4' => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src/helper.php',
+        'b4e3f29b106af37a2bb239f73cdf68c7' => __DIR__ . '/../..' . '/app/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -605,6 +606,7 @@ class ComposerStaticInit00cac5469831c9b1caddfa652d128735
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Reloj' => __DIR__ . '/../..' . '/app/Reloj.php',
         'App\\Revista' => __DIR__ . '/../..' . '/app/Revista.php',
         'App\\Salud' => __DIR__ . '/../..' . '/app/Salud.php',
         'App\\Titulo' => __DIR__ . '/../..' . '/app/Titulo.php',
