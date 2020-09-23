@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Agente;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
 
 class AgentesController extends Controller
@@ -19,9 +20,16 @@ class AgentesController extends Controller
 
         //$agentes = Agente::select('id','APYNOM','DOCUME','DENARE','FECNAC','FECING')->get();
 
-        $agentes = cache()->remember('agentes',now()->addMicroseconds(60),function (){
-            return Agente::select('id','NROUAG','APYNOM','DOCUME','FECING','posta1','posta2','posta3','posta4','posta5')->take(400)->get();
-        });
+        //$agentes = cache()->remember('agentes',now()->addMicroseconds(60),function (){
+        //    return Agente::select('id','NROUAG','APYNOM','FECING','posta1','posta2','posta3','posta4')
+        //        ->take(400)->get();
+        //});
+
+        $agentes = DB::table('agentes')
+                    ->join('turnos', 'agentes.nrouag', '=', 'turnos.nrouag')
+                    ->select('agentes.id','agentes.NROUAG', 'agentes.APYNOM', 'agentes.DOCUME', 'agentes.posta1', 'agentes.posta2', 'agentes.posta3', 'agentes.posta4','turnos.FECHA','turnos.HORA')
+                    ->take(400)
+                    ->get();
 
 
         return DataTables::of($agentes)
@@ -35,7 +43,7 @@ class AgentesController extends Controller
                 <a href="/empleados/imprimir/'.$agentes->NROUAG.'"class="btn btn-app"><i class="fas fa-print"></i> Imprimir</a>
                 ';
             })
-            ->editColumn('id', '{{$id}}')
+            ->editColumn('agente.id', '{{$id}}')
             ->make(true)
             ;
 

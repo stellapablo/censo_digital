@@ -196,7 +196,9 @@ class EmpleadosController extends Controller
         $agente = Agente::where('nrouag','=',$id)->first();
         $revista = Revista::find($agente->SITREV)->nombre;
 
-        $areas = ['' => ''] + Reloj::orderBy('LUGAR')->pluck('LUGAR','CODIGO')->all();
+        $reloj = ['' => ''] + Reloj::orderBy('LUGAR')->pluck('LUGAR','CODIGO')->all();
+        $areas = ['' => ''] + Area::orderBy('nombre')->pluck('nombre','are_nro')->all();
+
 
         //subroga
         $sub = $this->checkSubr($agente);
@@ -208,10 +210,10 @@ class EmpleadosController extends Controller
 
         if($data != null ){
 
-            return view('empleados.upd_revista',compact('agente','data','revista','sub','cargo_sub','areas','conceptos'));
+            return view('empleados.upd_revista',compact('agente','data','revista','sub','cargo_sub','areas','conceptos','reloj'));
         }
 
-        return view('empleados.revista',compact('agente','revista','areas','sub','cargo_sub','conceptos'));
+        return view('empleados.revista',compact('agente','revista','areas','sub','cargo_sub','conceptos','reloj'));
     }
 
     public function srevista(Request  $request){

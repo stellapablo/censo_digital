@@ -63,9 +63,9 @@
                     'url': 'https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
                 },
                 columns: [
-                    { data: 'APYNOM', name: 'APYNOM' },
-                    { data: 'DOCUME', name: 'DOCUME' },
-                    { data: 'FECING', name: 'FECING' },
+                    { data: 'APYNOM', name: 'agentes.APYNOM' },
+                    { data: 'DOCUME', name: 'agentes.DOCUME' },
+                    { data: 'FECHA', name: 'turnos.fecha' },
                     { data: 'action', name: 'action', orderable: true, searchable: true}
                 ]
             });

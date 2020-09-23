@@ -93,14 +93,14 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label>Subroga por:</label>
-                                                    <input type="text" class="form-control" value="{{ $data->subroga_en }}" name="subroga_en" >
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Lugar fisico de trabajo</label>
-                                                    {!! Form::select('trabaja_en', $areas ,  $data->trabaja_en , ['class' => 'form-control','autocomplete'=> 'off'])!!}
-                                                </div>
+                                            <div class="form-group">
+                                                <label>Area:</label>
+                                                {!! Form::select('trabaja_en', $areas ,  $agente->AREA, ['class' => 'form-control','autocomplete'=> 'off','disabled'])!!}
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Lugar fisico de trabajo</label>
+                                                {!! Form::select('trabaja_en', $reloj ,  null, ['class' => 'form-control','autocomplete'=> 'off'])!!}
+                                            </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <h5>Horario de trabajo</h5>
@@ -139,7 +139,6 @@
                                 </div>
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-default" >Cancelar</button>
                                     <button type="submit" class="btn btn-success float-right">Guardar</button>
                                 </div>
                         </form>

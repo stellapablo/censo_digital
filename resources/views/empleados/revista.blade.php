@@ -94,12 +94,12 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Subroga por:</label>
-                                                <input type="text" class="form-control" name="subroga_en" placeholder="Enter ...">
+                                                <label>Area:</label>
+                                                {!! Form::select('trabaja_en', $areas ,  $agente->AREA, ['class' => 'form-control','autocomplete'=> 'off','disabled'])!!}
                                             </div>
                                             <div class="form-group">
                                                 <label>Lugar fisico de trabajo</label>
-                                                {!! Form::select('trabaja_en', $areas ,  null, ['class' => 'form-control','autocomplete'=> 'off'])!!}
+                                                {!! Form::select('trabaja_en', $reloj ,  null, ['class' => 'form-control','autocomplete'=> 'off'])!!}
                                             </div>
                                         </div>
                                         <div class="col-sm-6">

@@ -26,7 +26,7 @@
             <li>Frecuencia Cardíaca: {{ $salud->frecuencia_cardiaca }}</li>
             <li>Frecuencia Respiratoria:  {{ $salud->frecuencia_respiratoria }}</li>
             <li>Temperatura:  {{ $salud->temperatura }}</li>
-            <li>Altura: {{ $salud->altura }} - Peso: {{ $salud->peso }} Índice de Masa corporal: [DATOS]</li>
+            <li>Altura: {{ $salud->altura }} - Peso: {{ $salud->peso }} <strong>Índice de Masa corporal: </strong> {{ indice_muscular($salud->peso,$salud->altura) }}</li>
             <li>Hipertension: {{ $salud->hipertension }}</li>
             <li>Diabetes: {{ $salud->diabetes }}</li>
             <li>Antecedente enfermedades agudas: {{ tilde($salud->agudas) }}</li>
