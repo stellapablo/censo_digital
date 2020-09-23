@@ -1,7 +1,7 @@
 <form wire:submit="addCargo" >
     <br class="card-body">
         <div class="card-header">
-            <h4>DECLARADO:
+            <h4>FORMACIÓN:
                 @if( $titulo == NULL)
                     {{ 'Sin titulo registrado' }}
                 @else
@@ -50,6 +50,9 @@
         @endforeach
         </tbody>
     </table>
+</div>
+<div class="card-footer" style="margin: 2em;">
+    <a href="{{ url('empleados') }}" type="button" class="btn btn-success float-right">FINALIZAR</a>
 </div>
 <!-- /.card-body -->
 <!-- /.box-body -->

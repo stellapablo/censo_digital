@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Agentes</a></li>
+                        <li class="breadcrumb-item">Agentes</li>
                         <li class="breadcrumb-item active">Datos del Cargo</li>
                     </ol>
                 </div>
@@ -73,6 +73,9 @@
                                             <div class="callout callout-info">
                                                     <h5>Subrogancia</h5>
                                                     <p>Subroga: <strong>{{ $sub }}</strong></p>
+                                                    @if($agente->CPTO20)
+                                                        <p>TIENE COMPENSACIÓN TÉCNICA: GRUPO {{ $agente->GRUPO }}</p>
+                                                    @endif
                                                     <h5>Cargo de base</h5>
                                                     <p>Lugar de trabajo: {{ $agente->DENARE }}</p>
                                             </div>
@@ -119,11 +122,9 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
-
+                            </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-default" >Cancelar</button>
                                 <button type="submit" class="btn btn-success float-right">Guardar</button>
                             </div>
                         </form>

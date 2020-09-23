@@ -251,24 +251,11 @@ return [
         [
             'text'        => 'Usuarios',
             'url'         => 'users',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 2,
+            'icon'        => 'far fa-fw fa-user',
             'label_color' => 'success',
         ],
-        ['header' => 'SETTINGS '],
         [
-            'text' => 'Perfil',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Cambiar password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-
-        [
-            'text'    => 'Empleados',
+            'text'    => 'Turnos',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [

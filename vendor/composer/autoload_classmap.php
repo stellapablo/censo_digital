@@ -49,6 +49,7 @@ return array(
     'App\\Salud' => $baseDir . '/app/Salud.php',
     'App\\Titulo' => $baseDir . '/app/Titulo.php',
     'App\\User' => $baseDir . '/app/User.php',
+    'App\\Vacuna' => $baseDir . '/app/Vacuna.php',
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
     'Asm89\\Stack\\Cors' => $vendorDir . '/asm89/stack-cors/src/Cors.php',
     'Asm89\\Stack\\CorsService' => $vendorDir . '/asm89/stack-cors/src/CorsService.php',

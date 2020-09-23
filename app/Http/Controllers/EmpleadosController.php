@@ -48,6 +48,7 @@ class EmpleadosController extends Controller
 
         $vacunas = Vacuna::where('DNI','=',$agente->DOCUME)->first();
 
+        //dd($vacunas);
 
         if($data != null ){
 
@@ -375,6 +376,7 @@ class EmpleadosController extends Controller
 
         return $conceptos;
 
+        //GRANT ALL ON censo_v13.* TO 'censo'@'localhost' IDENTIFIED BY 'swaping_00' WITH GRANT OPTION;
 
     }
 

@@ -43,19 +43,19 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Frecuencia Cardiaca</label>
-                                        <input type="text" name="frecuencia_cardiaca" class="form-control" placeholder="Enter ...">
+                                        <input type="text" name="frecuencia_cardiaca" data-mask="00.00" class="form-control" placeholder="Enter ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Frecuencia Respiratoria</label>
-                                        <input type="text" name="frecuencia_respiratoria" class="form-control" placeholder="Enter ...">
+                                        <input type="text" name="frecuencia_respiratoria" data-mask="00.00" class="form-control" placeholder="Enter ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Temperatura</label>
-                                        <input type="text" class="form-control" data-mask="00" name="temperatura" placeholder="Enter ...">
+                                        <input type="text" class="form-control" data-mask="00.0" name="temperatura" placeholder="Enter ...">
                                     </div>
                                 </div>
                             </div>
@@ -69,7 +69,19 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Peso</label>
-                                        <input type="text" class="form-control" data-mask="000" name="peso" placeholder="Enter ...">
+                                        <input type="text" class="form-control" data-mask="00.00" name="peso" placeholder="Enter ...">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Presión Diastole</label>
+                                        <input type="text" class="form-control" data-mask="0000" name="diastole" placeholder="Enter ...">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Presión Sistole</label>
+                                        <input type="text" class="form-control" data-mask="0000" name="sistole" placeholder="Enter ...">
                                     </div>
                                 </div>
                             </div>
@@ -84,6 +96,19 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-4">
+                                            <!-- checkbox -->
+                                            <h4>Sin vacunas registradas</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card card-secondary">
+                                    <div class="card-header">
+                                        <h3 class="card-title">OBSERVACIONES GENERALES</h3>
+                                    </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-5">
                                             <!-- checkbox -->
                                             <div class="form-group">
                                                 <!-- <h5 class="mt-4 mb-2">Enfermedades</h5> -->
@@ -101,33 +126,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
-                                            <!-- checkbox -->
-                                            <div class="form-group">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" name="antitetanica" type="checkbox" id="customCheckbox15" >
-                                                    <label for="customCheckbox15" class="custom-control-label">Anti-tetanica</label>
-                                                </div>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox" name="hepa" id="customCheckbox4">
-                                                    <label for="customCheckbox4" class="custom-control-label">Hep. A</label>
-                                                </div>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" name="hepb" type="checkbox" id="customCheckbox5">
-                                                    <label for="customCheckbox5"  class="custom-control-label">Hep. B</label>
-                                                </div>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox" name="doble" id="customCheckbox6">
-                                                    <label for="customCheckbox6" class="custom-control-label">Doble gripal</label>
-                                                </div>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" name="antigripal" type="checkbox" id="customCheckbox7" >
-                                                    <label for="customCheckbox7" class="custom-control-label">Antigripal</label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-5">
                                             <!-- checkbox -->
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox">
@@ -148,35 +147,31 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-9">
-                                            <div class="form-group">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" name="preocupacional" type="checkbox" id="customCheckbox11" >
-                                                    <label for="customCheckbox11" class="custom-control-label">Tiene completo su pre-ocupacional</label>
-                                                </div>
-                                            </div>
                                             <!-- textarea -->
                                             <div class="form-group">
                                                 <label>Observaciones</label>
-                                                <textarea class="form-control" rows="5" name="observaciones" placeholder="Enter ..."></textarea>
+                                                <textarea class="form-control" class="col-md-7" rows="5" name="observaciones" placeholder="Enter ..."></textarea>
                                             </div>
-
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox">
                                                     <input class="custom-control-input" name="consulta" type="checkbox" id="customCheckbox12" >
                                                     <label for="customCheckbox12" class="custom-control-label">Es necesario realizar una CONSULTA posterior al censo con éste agente. </label>
                                                 </div>
                                             </div>
-
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input class="custom-control-input" name="preocupacional" type="checkbox" id="customCheckbox11" >
+                                                    <label for="customCheckbox11" class="custom-control-label">Tiene completo su pre-ocupacional</label>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-
-
                                 </div>
                                 <!-- /.card-body -->
                             </div>
+
                             <!-- /.card -->
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-default" >Cancelar</button>
                                 <button type="submit" class="btn btn-success float-right">Guardar</button>
                             </div>
                         </form>
