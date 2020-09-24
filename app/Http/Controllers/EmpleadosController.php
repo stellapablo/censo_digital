@@ -16,6 +16,7 @@ use App\Reloj;
 use App\Revista;
 use App\Salud;
 use App\Titulo;
+use App\Turno;
 use App\Vacuna;
 use Barryvdh\DomPDF\PDF;
 use Carbon\Carbon;
@@ -393,4 +394,21 @@ class EmpleadosController extends Controller
         return redirect()->route('empleados')->withSuccess('Debe completar todas las postas para imprimir');
     }
 
+    public function setTurnos(){
+
+        $turnos = Turno::all()->take(50);
+
+        $current = Carbon::now();
+
+        foreach ($turnos as $turno) {
+
+            $turno->fecha = $current->format('Y-m-d');
+            $turno->save();
+        }
+
+        //$fecha =  Carbon::createFromFormat('Y-m-d H');
+
+
+
+    }
 }

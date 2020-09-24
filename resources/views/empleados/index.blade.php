@@ -38,7 +38,8 @@
                         <tr>
                             <th>Nombre</th>
                             <th>DNI</th>
-                            <th>Fecha Ingreso</th>
+                            <th>Fecha Turno </th>
+                            <th>Hora Turno </th>
                             <th>Acciones</th>
                         </tr>
                         </thead>
@@ -65,7 +66,8 @@
                 columns: [
                     { data: 'APYNOM', name: 'agentes.APYNOM' },
                     { data: 'DOCUME', name: 'agentes.DOCUME' },
-                    { data: 'FECHA', name: 'turnos.fecha' },
+                    { data: 'fecha', name: 'turnos.fecha' },
+                    { data: 'hora', name: 'turnos.hora' },
                     { data: 'action', name: 'action', orderable: true, searchable: true}
                 ]
             });

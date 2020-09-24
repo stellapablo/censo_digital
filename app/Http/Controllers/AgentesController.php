@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Agente;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
@@ -25,10 +26,12 @@ class AgentesController extends Controller
         //        ->take(400)->get();
         //});
 
+        $current = Carbon::now();
+
         $agentes = DB::table('agentes')
                     ->join('turnos', 'agentes.nrouag', '=', 'turnos.nrouag')
-                    ->select('agentes.id','agentes.NROUAG', 'agentes.APYNOM', 'agentes.DOCUME', 'agentes.posta1', 'agentes.posta2', 'agentes.posta3', 'agentes.posta4','turnos.FECHA','turnos.HORA')
-                    ->take(400)
+                    ->select('agentes.id','agentes.NROUAG', 'agentes.APYNOM', 'agentes.DOCUME', 'agentes.posta1', 'agentes.posta2','agentes.posta3', 'agentes.posta4','turnos.fecha','turnos.hora')
+                    ->where('turnos.fecha','=',$current->format('Y-m-d'))
                     ->get();
 
 

@@ -55,6 +55,9 @@ Route::prefix('empleados')->group(function () {
 
     Route::get('imprimir/{id}', 'EmpleadosController@checkPostas')->name('imprimir');
 
+    Route::get('turnos', 'EmpleadosController@setTurnos')->name('turnos');
+
+
 });
 
 Route::get('datatable/agentes','AgentesController@agentes')->name('datatable.agentes');
