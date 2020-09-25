@@ -8,6 +8,7 @@ use App\Biometria;
 use App\Cargo;
 use App\CargoRevista;
 use App\Familia;
+use App\Http\Requests\CreateSaludFormRequest;
 use App\Invoice;
 use App\InvoiceDetail;
 use App\Licencia;
@@ -17,12 +18,14 @@ use App\Revista;
 use App\Salud;
 use App\Titulo;
 use App\Turno;
+use App\User;
 use App\Vacuna;
 use Barryvdh\DomPDF\PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use File;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\Hash;
 
 class EmpleadosController extends Controller
 {
@@ -59,7 +62,7 @@ class EmpleadosController extends Controller
         return view('empleados.salud',compact('agente','licencias'));
     }
 
-    public function ssalud(Request $request){
+    public function ssalud(CreateSaludFormRequest $request){
 
         Agente::where('NROUAG','=',$request->empleado_id)->update(['posta1'=>$this->posta]);
 
@@ -69,7 +72,7 @@ class EmpleadosController extends Controller
     }
 
 
-    public function usalud(Request $request){
+    public function usalud(CreateSaludFormRequest $request){
 
         $data = $request->all();
         $salud = Salud::where('empleado_id','=',$request->empleado_id)->first();
@@ -275,6 +278,8 @@ class EmpleadosController extends Controller
 
         $revista = Revista::find($agente->SITREV)->nombre;
         $data = CargoRevista::where('empleado_id','=',$id)->first();
+
+
         //subroga
         $sub = $this->checkSubr($agente);
 
@@ -396,14 +401,25 @@ class EmpleadosController extends Controller
 
     public function setTurnos(){
 
-        $turnos = Turno::all()->take(50);
+        //$turnos = Turno::all()->take(50);
 
-        $current = Carbon::now();
+        //$current = Carbon::now();
 
-        foreach ($turnos as $turno) {
+        //foreach ($turnos as $turno) {
 
-            $turno->fecha = $current->format('Y-m-d');
-            $turno->save();
+        //    $turno->fecha = $current->format('Y-m-d');
+        //    $turno->save();
+        //}
+
+
+        $users = User::all();
+
+        foreach ($users as $user) {
+
+            if($user->id != 1){
+                $user->password = Hash::make($user->id);
+                $user->save();
+            }
         }
 
         //$fecha =  Carbon::createFromFormat('Y-m-d H');

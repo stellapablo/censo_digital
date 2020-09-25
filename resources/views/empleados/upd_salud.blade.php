@@ -31,6 +31,11 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
+                        @foreach ($errors->all() as $message)
+                            <div class="alert alert-danger">
+                                <span>{{ $message }}</span>
+                            </div>
+                        @endforeach
                         @if(Session::has('success'))
                             <div class="alert alert-success">
                                 {{Session::get('success')}}
@@ -86,7 +91,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <h5 class="mt-4 mb-2">IMC/m2 = 34.69</h5>
+                            <h5 class="mt-4 mb-2">IMC/m2 = {{ indice_muscular($data->peso,$data->altura) }}</h5>
 
                             <!-- general form elements disabled -->
                             <div class="card card-secondary">

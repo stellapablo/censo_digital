@@ -30,7 +30,14 @@
                         <h3 class="card-title">{{ $agente->APYNOM }}  - ({{ $agente->CUILAG }}) </h3>
                     </div>
                     <!-- /.card-header -->
+
                     <div class="card-body">
+                        @foreach ($errors->all() as $message)
+                            <div class="alert alert-danger">
+                               <span>{{ $message }}</span>
+                            </div>
+                        @endforeach
+
                         @if(Session::has('success'))
                             <div class="alert alert-success">
                                 {{Session::get('success')}}
@@ -65,6 +72,7 @@
                                         <label>Altura</label>
                                         <input type="text" class="form-control" data-mask="0.00" name="altura" placeholder="Enter ...">
                                     </div>
+
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
@@ -72,6 +80,7 @@
                                         <input type="text" class="form-control" data-mask="00.00" name="peso" placeholder="Enter ...">
                                     </div>
                                 </div>
+
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Presión Diastole</label>
