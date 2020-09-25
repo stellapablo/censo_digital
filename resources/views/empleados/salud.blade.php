@@ -50,7 +50,7 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Frecuencia Cardiaca</label>
-                                        <input type="text" name="frecuencia_cardiaca" data-mask="00.00" class="form-control" placeholder="Enter ...">
+                                        <input type="text" name="frecuencia_cardiaca" data-mask="000.00" class="form-control" placeholder="Enter ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
@@ -62,7 +62,7 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Temperatura</label>
-                                        <input type="text" class="form-control" data-mask="00.0" name="temperatura" placeholder="Enter ...">
+                                        <input type="text" class="form-control" data-mask="00.00" name="temperatura" placeholder="Enter ...">
                                     </div>
                                 </div>
                             </div>
@@ -70,14 +70,14 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Altura</label>
-                                        <input type="text" class="form-control" data-mask="0.00" name="altura" placeholder="Enter ...">
+                                        <input type="text" class="form-control" data-mask="00.00" name="altura" placeholder="Enter ...">
                                     </div>
 
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Peso</label>
-                                        <input type="text" class="form-control" data-mask="00.00" name="peso" placeholder="Enter ...">
+                                        <input type="text" class="form-control" data-mask="000.00" name="peso" placeholder="Enter ...">
                                     </div>
                                 </div>
 

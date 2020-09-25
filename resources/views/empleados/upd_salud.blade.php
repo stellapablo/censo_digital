@@ -48,7 +48,7 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Frecuencia Cardiaca</label>
-                                        <input type="text" value="{{ $data->frecuencia_cardiaca }}"  data-mask="00.00"  name="frecuencia_cardiaca" class="form-control" placeholder="Enter ...">
+                                        <input type="text" value="{{ $data->frecuencia_cardiaca }}"  data-mask="000.00"  name="frecuencia_cardiaca" class="form-control" placeholder="Enter ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
@@ -60,7 +60,7 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Temperatura</label>
-                                        <input type="text" value="{{ $data->temperatura }}"  data-mask="00.0"  class="form-control" name="temperatura" placeholder="Enter ...">
+                                        <input type="text" value="{{ $data->temperatura }}"  data-mask="00.00"  class="form-control" name="temperatura" placeholder="Enter ...">
 
                                     </div>
                                 </div>
@@ -69,13 +69,13 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Altura</label>
-                                        <input type="text" value="{{ $data->altura }}"  data-mask="0.00"   class="form-control" name="altura" placeholder="Enter ...">
+                                        <input type="text" value="{{ $data->altura }}"  data-mask="00.00"   class="form-control" name="altura" placeholder="Enter ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Peso</label>
-                                        <input type="text" value="{{ $data->peso }}"  data-mask="00.00"  class="form-control" name="peso" placeholder="Enter ...">
+                                        <input type="text" value="{{ $data->peso }}"  data-mask="000.00"  class="form-control" name="peso" placeholder="Enter ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
