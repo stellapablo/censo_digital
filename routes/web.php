@@ -28,6 +28,10 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::prefix('empleados')->group(function () {
     Route::get('/', 'AgentesController@index')->name('empleados');
+
+    Route::get('nomina', 'AgentesController@nomina')->name('nomina');
+
+
     Route::get('biometrico/{id}', 'EmpleadosController@biometrico')->name('biometrico');
     Route::get('salud/{id}', 'EmpleadosController@salud')->name('salud');
     Route::get('personal/{id}', 'EmpleadosController@personal')->name('personal');
@@ -59,7 +63,7 @@ Route::prefix('empleados')->group(function () {
 
 
 });
-
+Route::get('datatable/nomina','AgentesController@listado')->name('datatable.listado');
 Route::get('datatable/agentes','AgentesController@agentes')->name('datatable.agentes');
 Route::get('datatable/users','UserController@anyUsers')->name('datatable.users');
 

@@ -86,7 +86,7 @@
                                                     @else
                                                         <input class="custom-control-input" name="residencia" type="checkbox" id="customCheckbox1" >
                                                     @endif
-                                                    <label for="customCheckbox1" class="custom-control-label">La RESIDENCIA ACTUAL es la misma que en el DNI, pero distinta a la registrada en sistema</label>
+                                                    <label for="customCheckbox1" class="custom-control-label">La RESIDENCIA ACTUAL es la misma que en el DNI</label>
                                                 </div>
                                             </div>
                                         </div>

@@ -52,6 +52,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card-footer" style="margin: 2em;">
+                        <a href="{{ url('empleados') }}" type="button" class="btn btn-success float-right">FINALIZAR</a>
+                    </div>
                     <script type="text/javascript">
                         Dropzone.options.dropzone = {
                                 maxFilesize: 10,

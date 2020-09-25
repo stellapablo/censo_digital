@@ -133,13 +133,15 @@ class EmpleadosController extends Controller
     public function sbiometrico(Request $request, $id){
 
         $image = $request->file('file');
-        $avatarName = $image->getClientOriginalName();
+        $avatarName = $id .'_'. $image->getClientOriginalName();
         $image->move(public_path('images'),$avatarName);
 
         $imageUpload = new Biometria();
         $imageUpload->empleado_id = $id;
         $imageUpload->imagen = $avatarName;
         $imageUpload->save();
+
+        Agente::where('NROUAG','=',$id)->update(['posta5'=>$this->posta]);
 
         return response()->json(['success'=>$avatarName]);
     }
