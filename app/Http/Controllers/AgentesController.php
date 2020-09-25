@@ -13,7 +13,6 @@ class AgentesController extends Controller
 {
     public function index()
     {
-        //$users = User::all();
         return view('empleados.index');
     }
 
@@ -29,10 +28,12 @@ class AgentesController extends Controller
         $current = Carbon::now();
 
         $agentes = DB::table('agentes')
-                    ->join('turnos', 'agentes.nrouag', '=', 'turnos.nrouag')
-                    ->select('agentes.id','agentes.NROUAG', 'agentes.APYNOM', 'agentes.DOCUME', 'agentes.posta1', 'agentes.posta2','agentes.posta3', 'agentes.posta4','turnos.fecha','turnos.hora')
-                    ->where('turnos.fecha','=',$current->format('Y-m-d'))
+                    ->join('turnos', 'agentes.NROUAG', '=', 'turnos.nrouag')
+                    ->select('agentes.id','agentes.NROUAG', 'agentes.APYNOM', 'agentes.DOCUME', 'agentes.posta1', 'agentes.posta2','agentes.posta3',
+                                     'agentes.posta4','turnos.fecha','turnos.hora')
+                    ->where('turnos.fecha','=','2020-09-25')
                     ->get();
+
 
 
         return DataTables::of($agentes)

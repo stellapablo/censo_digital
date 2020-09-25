@@ -8,7 +8,7 @@ class Turno extends Model
 {
     protected $table = 'turnos';
 
-    protected $fillable = ['nrouag','fecha','turno'];
+    protected $fillable = ['nrouag','fecha','hora'];
 
     public $timestamps = false;
 
