@@ -96,7 +96,7 @@
                                             <div class="form-group">
                                                 <label>Area:</label>
                                                 <input id="area_search" placeholder="Buscar Area" name="area" type="text" onfocus="this.value=''" value="{{ $area->nombre  }}" autocomplete="off" class="form-control">
-                                                <input id="area_nro" placeholder="Buscar Area" name="area_id" type="hidden" class="form-control">
+                                                <input id="area_nro" value="{{ $area->are_nro }}" placeholder="Buscar Area" name="area_id" type="hidden" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label>Lugar fisico de trabajo:</label>

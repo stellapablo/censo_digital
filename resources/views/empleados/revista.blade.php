@@ -1,6 +1,5 @@
 @extends('adminlte::page')
-@section('adminlte_css')
-@stop
+
 @section('title', 'Dashboard')
 
 
@@ -96,7 +95,7 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Area:</label>
-                                                <input id="area_search" placeholder="Buscar Area" name="area" type="text" onfocus="this.value=''" autocomplete="off" class="form-control">
+                                                <input id="area_search" placeholder="Buscar Area" name="area" type="text" value="{{ $area->nombre }}"  onfocus="this.value=''" autocomplete="off" class="form-control">
                                                 <input id="area_nro" placeholder="Buscar Area" name="area_id" type="hidden" class="form-control">
                                             </div>
                                             <div class="form-group">
@@ -185,7 +184,3 @@
         });
     </script>
 @stop
-
-
-
-})

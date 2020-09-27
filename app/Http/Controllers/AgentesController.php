@@ -56,17 +56,13 @@ class AgentesController extends Controller
 
     public function listado(){
 
-        $agentes = DB::table('agentes')->select('id','NROUAG', 'APYNOM', 'DOCUME', 'posta1', 'posta2','posta3','posta4','posta5')->get();
+        $agentes = Agente::select('id','NROUAG','APYNOM','DOCUME','turno')->get();
+
 
         return DataTables::of($agentes)
             ->addColumn('action', function ($agentes) {
                 return '
-                <a href="/empleados/biometrico/'.$agentes->NROUAG.'" class="btn btn-app"><i class="fas fa-photo-video"></i> Foto</a>
-                <a href="/empleados/salud/'.$agentes->NROUAG.'" class="btn btn-app"><span class="badge bg-warning">'.$agentes->posta1.'</span><i class="fas fa-hospital"></i> Salud</a>
-                <a href="/empleados/personal/'.$agentes->NROUAG.'"  class="btn btn-app"><span class="badge bg-warning">'.$agentes->posta2.'</span><i class="fas fa-database"></i> Personal</a>
-                <a href="/empleados/revista/'.$agentes->NROUAG.'" class="btn btn-app"><span class="badge bg-warning">'.$agentes->posta3.'</span><i class="fas fa-child"></i> Cargo</a>
-                <a href="/empleados/formacion/'.$agentes->NROUAG.'"class="btn btn-app"><span class="badge bg-warning">'.$agentes->posta4.'</span><span class="badge bg-warning"></span><i class="fas fa-graduation-cap"></i> Formacion</a>
-                <a href="/empleados/imprimir/'.$agentes->NROUAG.'"class="btn btn-app"><i class="fas fa-print"></i> Imprimir</a>
+                <a onclick="return confirm(\'Está seguro que desea agregar al turno actual?\')" href="/empleados/agregar/'.$agentes->NROUAG.'" class="btn btn-xs btn-success"><i class="fas fa-file-archive"></i>  Agregar al turno</a>
                 ';
             })
             ->editColumn('id', '{{$id}}')

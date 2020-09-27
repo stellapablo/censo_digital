@@ -243,6 +243,13 @@ class EmpleadosController extends Controller
 
         $conceptos = $this->getConceptos($id);
 
+        $area = Area::where('are_nro','=',$agente->AREA)->first();
+
+        if($area == null){
+            $area = Area::where('are_nro','=','99999999')->first();
+        }
+
+
         if($data != null ){
 
             $area = Area::where('are_nro','=',$data->area_id)->first();
@@ -250,7 +257,7 @@ class EmpleadosController extends Controller
             return view('empleados.upd_revista',compact('agente','data','revista','sub','cargo_sub','area','conceptos','reloj'));
         }
 
-        return view('empleados.revista',compact('agente','revista','sub','cargo_sub','conceptos','reloj'));
+        return view('empleados.revista',compact('agente','revista','sub','cargo_sub','area','conceptos','reloj'));
     }
 
     public function srevista(Request  $request){
@@ -503,6 +510,16 @@ class EmpleadosController extends Controller
         }
     }
 
+    public function addTurno($id){
+
+        $current = Carbon::now();
+
+        $agente = Agente::where('NROUAG','=',$id)->first();
+        $agente->turno = $current->format('Y-m-d');
+        $agente->save();
+
+        return redirect()->route('empleados')->withSuccess('Agente actualizado al turno');
+    }
 
 }
 

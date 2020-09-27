@@ -33,6 +33,8 @@ Route::prefix('empleados')->group(function () {
 
     Route::get('nomina', 'AgentesController@nomina')->name('nomina');
 
+    Route::get('agregar/{id}', 'EmpleadosController@addTurno')->name('agregar');
+
 
     Route::get('biometrico/{id}', 'EmpleadosController@biometrico')->name('biometrico');
     Route::get('salud/{id}', 'EmpleadosController@salud')->name('salud');

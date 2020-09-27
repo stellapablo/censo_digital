@@ -48,9 +48,9 @@
         <hr>
         <ul class="clearfix">
             <li>Apelido y Nombre: {{ $agente->APYNOM }}</li>
-            <li>DNI: {{ $agente->DNI }}</li>
+            <li>DNI: {{ $agente->DOCUME }}</li>
             <li>Fecha de Nacimiento: {{ $agente->FECNAC }}</li>
-            <li>Estado Civil: {{ $personal->estado_civil }}</li>
+            <li>Estado Civil: {{ getEstado($personal->estado_civil) }}</li>
             <li>Permiso para conducir: {{ $personal->permiso }}</li>
             <li>Sexo: {{ $personal->sexo }}</li>
             <li>La RESIDENCIA ACTUAL es la misma que en el DNI, pero distinta a la registrada en sistema: {{ tilde($personal->residencia) }}</li>
