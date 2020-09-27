@@ -70,7 +70,7 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Altura</label>
-                                        <input type="text" class="form-control" data-mask="000" name="altura" placeholder="Altura en CM">
+                                        <input type="text" class="form-control" data-mask="0.00" name="altura" placeholder="Altura en Metro">
                                     </div>
 
                                 </div>

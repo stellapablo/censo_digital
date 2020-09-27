@@ -10,21 +10,21 @@ function tilde($check){
 
 function indice_muscular($peso,$altura){
 
-    $indice = $peso / ($altura * $altura);
+    $indice = round($peso / ($altura * $altura),2);
 
-    if($indice < 18.5){
-        $texto =  "Peso inferior al normal";
+    if($indice <= 18.5){
+        return  $indice .   " Peso inferior al normal";
     }
 
     if($indice > 18.5 and $indice <= 24.9){
-        $texto =  "Peso Normal";
+        return $indice .   "Peso Normal";
     }
 
     if($indice >= 25 and $indice <= 29.9){
-        $texto =  "Peso superior al normal";
+        return $indice  .  "Peso superior al normal";
+
     }else{
-        $texto = "Obesidad";
+        return $indice . "Obesidad";
     }
 
-    return round($indice,3) . ': ' . $texto;
 }

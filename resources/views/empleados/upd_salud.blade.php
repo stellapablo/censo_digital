@@ -69,13 +69,13 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Altura</label>
-                                        <input type="text" value="{{ $data->altura }}"  data-mask="00.00"   class="form-control" name="altura" placeholder="Enter ...">
+                                        <input type="text" value="{{ $data->altura }}"  data-mask="0.00"   class="form-control" name="altura" placeholder="Altura en M.">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Peso</label>
-                                        <input type="text" value="{{ $data->peso }}"  data-mask="000.00"  class="form-control" name="peso" placeholder="Enter ...">
+                                        <input type="text" value="{{ $data->peso }}"  data-mask="000"  class="form-control" name="peso" placeholder="Peso en KG.">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
