@@ -42,7 +42,7 @@ class Cargos extends Component{
 
     public function render(){
 
-        $agente = Agente::find(session('agente_id'))->first();
+        $agente = Agente::where('NROUAG','=',session('agente_id'))->first();
         $cargos = Cargo::where('empleado_id','=',session('agente_id'))->orderBy('nivel_id','DESC')->get();
         $titulo = Titulo::where('codigo','=',session('agente_titulo'))->first();
 

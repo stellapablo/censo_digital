@@ -25,6 +25,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use File;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class EmpleadosController extends Controller
@@ -133,7 +134,7 @@ class EmpleadosController extends Controller
     public function sbiometrico(Request $request, $id){
 
         $image = $request->file('file');
-        $avatarName = $id .'_'. $image->getClientOriginalName();
+        $avatarName = 'dni_' . $id .'_'.uniqid();
         $image->move(public_path('images'),$avatarName);
 
         $imageUpload = new Biometria();
@@ -142,6 +143,36 @@ class EmpleadosController extends Controller
         $imageUpload->save();
 
         Agente::where('NROUAG','=',$id)->update(['posta5'=>$this->posta]);
+
+        return response()->json(['success'=>$avatarName]);
+    }
+
+    public function sbiometricoFirma(Request $request, $id){
+
+        $image = $request->file('file');
+        $avatarName = 'firma_' . $id .'_'.uniqid();
+        $image->move(public_path('images'),$avatarName);
+
+        $imageUpload = new Biometria();
+        $imageUpload->empleado_id = $id;
+        $imageUpload->imagen = $avatarName;
+        $imageUpload->save();
+
+
+        return response()->json(['success'=>$avatarName]);
+    }
+
+
+    public function sbiometricoFacial(Request $request, $id){
+
+        $image = $request->file('file');
+        $avatarName = 'foto_' . $id .'_'.uniqid();
+        $image->move(public_path('images'),$avatarName);
+
+        $imageUpload = new Biometria();
+        $imageUpload->empleado_id = $id;
+        $imageUpload->imagen = $avatarName;
+        $imageUpload->save();
 
         return response()->json(['success'=>$avatarName]);
     }
@@ -203,8 +234,6 @@ class EmpleadosController extends Controller
         $revista = Revista::find($agente->SITREV)->nombre;
 
         $reloj = ['' => ''] + Reloj::orderBy('LUGAR')->pluck('LUGAR','CODIGO')->all();
-        $areas = ['' => ''] + Area::orderBy('nombre')->pluck('nombre','are_nro')->all();
-
 
         //subroga
         $sub = $this->checkSubr($agente);
@@ -216,10 +245,12 @@ class EmpleadosController extends Controller
 
         if($data != null ){
 
-            return view('empleados.upd_revista',compact('agente','data','revista','sub','cargo_sub','areas','conceptos','reloj'));
+            $area = Area::where('are_nro','=',$data->area_id)->first();
+
+            return view('empleados.upd_revista',compact('agente','data','revista','sub','cargo_sub','area','conceptos','reloj'));
         }
 
-        return view('empleados.revista',compact('agente','revista','areas','sub','cargo_sub','conceptos','reloj'));
+        return view('empleados.revista',compact('agente','revista','sub','cargo_sub','conceptos','reloj'));
     }
 
     public function srevista(Request  $request){
@@ -401,7 +432,7 @@ class EmpleadosController extends Controller
         return redirect()->route('empleados')->withSuccess('Debe completar todas las postas para imprimir');
     }
 
-    public function setTurnos(){
+    public function setTurnos2(){
 
         //$turnos = Turno::all()->take(50);
 
@@ -426,7 +457,53 @@ class EmpleadosController extends Controller
 
         //$fecha =  Carbon::createFromFormat('Y-m-d H');
 
-
-
     }
+
+    // $areas = ['' => ''] + Area::orderBy('nombre')->pluck('nombre','are_nro')->all();
+
+    public function getAreas(Request $request){
+
+        $search = $request->search;
+
+
+        if($search == ''){
+            $areas = Area::orderby('nombre','asc')->select('are_nro','nombre')->limit(5)->get();
+        }else{
+            $areas = Area::orderby('nombre','asc')->select('are_nro','nombre')->where('nombre', 'like', '%' .$search . '%')->limit(5)->get();
+        }
+
+        $response = array();
+
+        foreach($areas as $row){
+            $response[] = array("value"=>$row->are_nro,"label"=>$row->nombre);
+        }
+
+        return response()->json($response);
+    }
+
+    public function setTurnos(){
+
+        $current = Carbon::now();
+
+        $agentes = DB::table('agentes')
+                    ->join('turnos', 'agentes.NROUAG', '=', 'turnos.nrouag')
+                    ->select('agentes.id','agentes.NROUAG', 'agentes.APYNOM', 'agentes.DOCUME', 'agentes.posta1', 'agentes.posta2','agentes.posta3',
+                                     'agentes.posta4','agentes.posta5','turnos.fecha','turnos.hora')
+                    ->where('turnos.fecha','=','2020-09-28')
+                    ->get();
+
+
+        $current = Carbon::createFromDate(2020, 9, 28);
+
+        foreach ($agentes as $item) {
+
+            $row = Agente::find($item->id);
+            $row->turno = $current->format('Y-m-d');
+            $row->save();
+        }
+    }
+
+
 }
+
+

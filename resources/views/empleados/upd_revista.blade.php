@@ -95,43 +95,57 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Area:</label>
-                                                {!! Form::select('trabaja_en', $areas ,  $agente->AREA, ['class' => 'form-control','autocomplete'=> 'off','disabled'])!!}
+                                                <input id="area_search" placeholder="Buscar Area" name="area" type="text" onfocus="this.value=''" value="{{ $area->nombre  }}" autocomplete="off" class="form-control">
+                                                <input id="area_nro" placeholder="Buscar Area" name="area_id" type="hidden" class="form-control">
                                             </div>
                                             <div class="form-group">
-                                                <label>Lugar fisico de trabajo</label>
-                                                {!! Form::select('trabaja_en', $reloj ,  null, ['class' => 'form-control','autocomplete'=> 'off'])!!}
+                                                <label>Lugar fisico de trabajo:</label>
+                                                {!! Form::select('reloj_id', $reloj ,  $data->reloj_id, ['class' => 'form-control','autocomplete'=> 'off'])!!}
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <h5>Horario de trabajo</h5>
-                                            <!-- checkbox -->
                                             <div class="form-group">
-                                                <!-- <h5 class="mt-4 mb-2">Enfermedades</h5> -->
-                                                <div class="custom-control custom-checkbox">
-                                                    @if($data->mañana)
-                                                        <input class="custom-control-input" name="mañana" type="checkbox" id="customCheckbox1" checked>
-                                                    @else
-                                                        <input class="custom-control-input" name="mañana" type="checkbox" id="customCheckbox1" >
-                                                    @endif
-                                                    <label for="customCheckbox1" class="custom-control-label">Mañana</label>
-                                                </div>
-                                                <div class="custom-control custom-checkbox">
-                                                    @if($data->tarde)
-                                                        <input class="custom-control-input" name="tarde" type="checkbox" id="customCheckbox2" checked>
-                                                    @else
-                                                        <input class="custom-control-input" name="tarde" type="checkbox" id="customCheckbox2" >
-                                                    @endif
-                                                    <label for="customCheckbox2" class="custom-control-label">Tarde</label>
-                                                </div>
-                                                <div class="custom-control custom-checkbox">
-                                                    @if($data->noche)
-                                                        <input class="custom-control-input" name="noche" type="checkbox" id="customCheckbox3" checked>
-                                                    @else
-                                                        <input class="custom-control-input" name="noche" type="checkbox" id="customCheckbox3" >
-                                                    @endif
-                                                    <label for="customCheckbox3" class="custom-control-label">Noche</label>
-                                                </div>
+                                                <label>Indicar Area, en caso de no encontrar</label>
+                                                <input type="text" name="area_nueva" value="{{ $data->area_nueva }}" class="form-control" placeholder="Indicar area">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Indicar lugar, en caso de no encontrar</label>
+                                                <input type="text" name="reloj_nuevo" value="{{ $data->reloj_nuevo }}" class="form-control" placeholder="Indicar reloj">
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <h5>Horario de trabajo</h5>
+                                                <!-- checkbox -->
+                                                <div class="form-group">
+                                                    <!-- <h5 class="mt-4 mb-2">Enfermedades</h5> -->
+                                                    <div class="custom-control custom-checkbox">
+                                                        @if($data->mañana)
+                                                            <input class="custom-control-input" name="mañana" type="checkbox" id="customCheckbox1" checked>
+                                                        @else
+                                                            <input class="custom-control-input" name="mañana" type="checkbox" id="customCheckbox1" >
+                                                        @endif
+                                                        <label for="customCheckbox1" class="custom-control-label">Mañana</label>
+                                                    </div>
+                                                    <div class="custom-control custom-checkbox">
+                                                        @if($data->tarde)
+                                                            <input class="custom-control-input" name="tarde" type="checkbox" id="customCheckbox2" checked>
+                                                        @else
+                                                            <input class="custom-control-input" name="tarde" type="checkbox" id="customCheckbox2" >
+                                                        @endif
+                                                        <label for="customCheckbox2" class="custom-control-label">Tarde</label>
+                                                    </div>
+                                                    <div class="custom-control custom-checkbox">
+                                                        @if($data->noche)
+                                                            <input class="custom-control-input" name="noche" type="checkbox" id="customCheckbox3" checked>
+                                                        @else
+                                                            <input class="custom-control-input" name="noche" type="checkbox" id="customCheckbox3" >
+                                                        @endif
+                                                        <label for="customCheckbox3" class="custom-control-label">Noche</label>
+                                                    </div>
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -150,5 +164,38 @@
             </div>
         </div>
     </div>
+@stop
+@section('adminlte_js')
+    <script type="text/javascript">
+        // CSRF Token
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        $(document).ready(function(){
+
+            $( "#area_search" ).autocomplete({
+                source: function( request, response ) {
+                    // Fetch data
+                    $.ajax({
+                        url:"{{ route('areas.autocomplete')}}",
+                        type: 'post',
+                        dataType: "json",
+                        data: {
+                            _token: CSRF_TOKEN,
+                            search: request.term
+                        },
+                        success: function( data ) {
+                            response( data );
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    // Set selection
+                    $('#area_search').val(ui.item.label); // display the selected text
+                    $('#area_nro').val(ui.item.value)
+                    return false;
+                }
+            });
+
+        });
+    </script>
 @stop
 

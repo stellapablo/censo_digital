@@ -70,14 +70,14 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Altura</label>
-                                        <input type="text" class="form-control" data-mask="00.00" name="altura" placeholder="Enter ...">
+                                        <input type="text" class="form-control" data-mask="000" name="altura" placeholder="Altura en CM">
                                     </div>
 
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Peso</label>
-                                        <input type="text" class="form-control" data-mask="000.00" name="peso" placeholder="Enter ...">
+                                        <input type="text" class="form-control" data-mask="000" name="peso" placeholder="Peso en KG">
                                     </div>
                                 </div>
 

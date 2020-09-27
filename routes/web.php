@@ -25,6 +25,8 @@ Auth::routes();
 
 Route::resource('users','UserController');
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('dashboard', 'HomeController@dashboard')->name('dashboard');
+
 
 Route::prefix('empleados')->group(function () {
     Route::get('/', 'AgentesController@index')->name('empleados');
@@ -51,7 +53,13 @@ Route::prefix('empleados')->group(function () {
     Route::post('revista/update', 'EmpleadosController@urevista')->name('empleados.urevista');
 
 
+    //empleados.sbiometrico.firma
     Route::post('biometrico/{id}', 'EmpleadosController@sbiometrico')->name('empleados.sbiometrico');
+    Route::post('biometrico/firma/{id}', 'EmpleadosController@sbiometricoFirma')->name('empleados.sbiometrico.firma');
+    Route::post('biometrico/facial/{id}', 'EmpleadosController@sbiometricoFacial')->name('empleados.sbiometrico.facial');
+
+
+
     Route::post('biometrico/image/delete', 'EmpleadosController@removeImage')->name('empleados.removeImage');
 
     Route::get('formacion/delete/{id}', 'EmpleadosController@deleteCargo')->name('delete.formacion');
@@ -66,6 +74,8 @@ Route::prefix('empleados')->group(function () {
 Route::get('datatable/nomina','AgentesController@listado')->name('datatable.listado');
 Route::get('datatable/agentes','AgentesController@agentes')->name('datatable.agentes');
 Route::get('datatable/users','UserController@anyUsers')->name('datatable.users');
+
+Route::post('areas/autocomplete','EmpleadosController@getAreas')->name('areas.autocomplete');
 
 
 //dropzone

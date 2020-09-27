@@ -32,77 +32,77 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form id="dropzoneForm" class="dropzone" action="{{ route('dropzone.upload') }}">
+                        <form method="post" action="{{route('empleados.sbiometrico',$agente->nrouag)}}" enctype="multipart/form-data"
+                              class="dropzone" id="dropzone">
+                            <input type="hidden" value="{{ $agente->nrouag }}" name="empĺeado_id">
                             @csrf
                         </form>
-                        <div align="center">
-                            <button type="button" class="btn btn-info" id="submit-all">Upload</button>
+                        <br />
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Archivos</h3>
+                            </div>
+                            <div class="row" id="uploaded_image">
+                                @foreach($images as $image)
+                                    <div class="col-md-2" >
+                                        <img src="{{ asset('images/' . $image->imagen) }}" class="img-thumbnail" width="175" style="height:175px;" />
+                                        <a href="{{ route('image.delete', [$image->id, $agente->nrouag]) }}" ><i style="margin:1em 4em; align-self: center"  class="fa fa-trash"></i></a>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
-                    <br />
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Imagenes</h3>
-                        </div>
-                        <div class="panel-body" id="uploaded_image">
-
-                        </div>
+                    <div class="card-footer" style="margin: 2em;">
+                        <a href="{{ url('empleados') }}" type="button" class="btn btn-success float-right">FINALIZAR</a>
                     </div>
-                </div>
-                <script type="text/javascript">
+                    <script type="text/javascript">
+                        Dropzone.options.dropzone = {
+                            maxFilesize: 10,
+                            acceptedFiles: ".jpeg,.jpg,.png,.gif",
+                            addRemoveLinks: true,
+                            timeout: 60000,
+                            dictDefaultMessage : 'Arrastre los archivos!',
+                            init: function () {
+                                this.on("removedfile", function (file) {
+                                    $.post({
+                                        url: 'image/delete',
+                                        data: {nombre: file.name, id: {{ $agente->nrouag }},_token: $('[name="_token"]').val()},
+                                        dataType: 'json',
+                                        success: function (data) {
+                                            $('#uploaded_image').html(data);
+                                        }
+                                    });
+                                });
 
-                    Dropzone.options.dropzoneForm = {
-                        autoProcessQueue : false,
-                        acceptedFiles : ".png,.jpg,.gif,.bmp,.jpeg",
+                                this.on("complete", function(){
+                                    load_images();
+                                });
+                            },
 
-                        init:function(){
-                            var submitButton = document.querySelector("#submit-all");
-                            myDropzone = this;
 
-                            submitButton.addEventListener('click', function(){
-                                myDropzone.processQueue();
-                            });
+                            success: function (file, response) {
+                                console.log(response);
+                            },
+                            error: function (file, response) {
+                                return false;
+                            }
+                        };
 
-                            this.on("complete", function(){
-                                if(this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0)
+                        load_images();
+
+                        function load_images()
+                        {
+                            $.ajax({
+                                url:"{{ route('dropzone.fetch') }}",
+                                data: {id: {{ $agente->nrouag }},_token: $('[name="_token"]').val()},
+                                success:function(data)
                                 {
-                                    var _this = this;
-                                    _this.removeAllFiles();
+                                    $('#uploaded_image').html(data);
                                 }
-                                load_images();
-                            });
-
+                            })
                         }
-
-                    };
-
-                    load_images();
-
-                    function load_images()
-                    {
-                        $.ajax({
-                            url:"{{ route('dropzone.fetch') }}",
-                            success:function(data)
-                            {
-                                $('#uploaded_image').html(data);
-                            }
-                        })
-                    }
-
-                    $(document).on('click', '.remove_image', function(){
-                        var name = $(this).attr('id');
-                        $.ajax({
-                            url:"{{ route('dropzone.delete') }}",
-                            data:{name : name},
-                            success:function(data){
-                                load_images();
-                            }
-                        })
-                    });
-
-                </script>
-
-            </div>
+                    </script>
+                </div>
                 <!-- /.card-body -->
             </div>
             <!-- /.card -->
@@ -111,3 +111,4 @@
     </div>
     </div>
 @stop
+

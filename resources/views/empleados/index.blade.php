@@ -39,7 +39,6 @@
                             <th>Nombre</th>
                             <th>DNI</th>
                             <th>Fecha Turno </th>
-                            <th>Hora Turno </th>
                             <th>Acciones</th>
                         </tr>
                         </thead>
@@ -64,10 +63,9 @@
                     'url': 'https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
                 },
                 columns: [
-                    { data: 'APYNOM', name: 'agentes.APYNOM' },
-                    { data: 'DOCUME', name: 'agentes.DOCUME' },
-                    { data: 'fecha', name: 'turnos.fecha' },
-                    { data: 'hora', name: 'turnos.hora' },
+                    { data: 'APYNOM', name: 'APYNOM' },
+                    { data: 'DOCUME', name: 'DOCUME' },
+                    { data: 'turno', name: 'turno' },
                     { data: 'action', name: 'action', orderable: true, searchable: true}
                 ]
             });

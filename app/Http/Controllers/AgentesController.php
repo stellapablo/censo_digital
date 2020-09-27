@@ -20,19 +20,20 @@ class AgentesController extends Controller
 
         //$agentes = Agente::select('id','APYNOM','DOCUME','DENARE','FECNAC','FECING')->get();
 
-        //$agentes = cache()->remember('agentes',now()->addMicroseconds(60),function (){
-        //    return Agente::select('id','NROUAG','APYNOM','FECING','posta1','posta2','posta3','posta4')
-        //        ->take(400)->get();
-        //});
-
         $current = Carbon::now();
+        $current = Carbon::createFromDate(2020, 9, 28);
 
-        $agentes = DB::table('agentes')
-                    ->join('turnos', 'agentes.NROUAG', '=', 'turnos.nrouag')
-                    ->select('agentes.id','agentes.NROUAG', 'agentes.APYNOM', 'agentes.DOCUME', 'agentes.posta1', 'agentes.posta2','agentes.posta3',
-                                     'agentes.posta4','agentes.posta5','turnos.fecha','turnos.hora')
-                    ->where('turnos.fecha','=',$current->format('Y-m-d'))
-                    ->get();
+
+        $agentes = Agente::select('id','NROUAG','APYNOM','FECING','posta1','posta2','posta3','posta4','DOCUME','posta5','turno')
+                ->whereDate('turno','=',$current->format('Y-m-d'))
+                ->get();
+
+        //$agentes = DB::table('agentes')
+        //            ->join('turnos', 'agentes.NROUAG', '=', 'turnos.nrouag')
+        //            ->select('agentes.id','agentes.NROUAG', 'agentes.APYNOM', 'agentes.DOCUME', 'agentes.posta1', 'agentes.posta2','agentes.posta3',
+        //                             'agentes.posta4','agentes.posta5','agentes.turno')
+        //            ->where('agentes.turno','=',$current->format('2020-09-28'))
+        //            ->get();
 
 
 

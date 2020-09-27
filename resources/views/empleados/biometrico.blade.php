@@ -32,12 +32,31 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
+                        <h4>DNI: Frontal y Dorso</h4>
+
                         <form method="post" action="{{route('empleados.sbiometrico',$agente->nrouag)}}" enctype="multipart/form-data"
                               class="dropzone" id="dropzone">
                             <input type="hidden" value="{{ $agente->nrouag }}" name="empĺeado_id">
                             @csrf
                         </form>
-                        <br />
+                    </div>
+                    <div class="card-body">
+                        <h4>Firma</h4>
+                        <form method="post" action="{{route('empleados.sbiometrico.firma',$agente->nrouag)}}" enctype="multipart/form-data"
+                              class="dropzone" id="dropzone">
+                            <input type="hidden" value="{{ $agente->nrouag }}" name="empĺeado_id">
+                            @csrf
+                        </form>
+                    </div>
+                    <div class="card-body">
+                        <h4>Foto Rostro</h4>
+                        <form method="post" action="{{route('empleados.sbiometrico.facial',$agente->nrouag)}}" enctype="multipart/form-data"
+                              class="dropzone" id="dropzone">
+                            <input type="hidden" value="{{ $agente->nrouag }}" name="empĺeado_id">
+                            @csrf
+                        </form>
+                    </div>
+                    <div class="card-body">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Archivos</h3>
@@ -46,7 +65,7 @@
                                 @foreach($images as $image)
                                     <div class="col-md-2" >
                                         <img src="{{ asset('images/' . $image->imagen) }}" class="img-thumbnail" width="175" style="height:175px;" />
-                                         <a href="{{ route('image.delete', [$image->id, $agente->nrouag]) }}" ><i style="margin:1em 4em; align-self: center"  class="fa fa-trash"></i></a>
+                                        <a href="{{ route('image.delete', [$image->id, $agente->nrouag]) }}" ><i style="margin:1em 4em; align-self: center"  class="fa fa-trash"></i></a>
                                     </div>
                                 @endforeach
                             </div>
@@ -61,6 +80,7 @@
                                 acceptedFiles: ".jpeg,.jpg,.png,.gif",
                                 addRemoveLinks: true,
                                 timeout: 60000,
+                                dictDefaultMessage : 'Arrastre los archivos!',
                                 init: function () {
                                     this.on("removedfile", function (file) {
                                         $.post({
@@ -105,7 +125,7 @@
                     <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
-
+                <!-- foto - dni - firma  -->
             </div>
         </div>
     </div>
