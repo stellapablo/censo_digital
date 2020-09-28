@@ -231,9 +231,12 @@ class EmpleadosController extends Controller
     public function revista($id){
 
         $agente = Agente::where('nrouag','=',$id)->first();
+
         $revista = Revista::find($agente->SITREV)->nombre;
 
         $reloj = ['' => ''] + Reloj::orderBy('LUGAR')->pluck('LUGAR','CODIGO')->all();
+
+        $subroga = $agente->SUBRGR;
 
         //subroga
         $sub = $this->checkSubr($agente);
@@ -254,10 +257,10 @@ class EmpleadosController extends Controller
 
             $area = Area::where('are_nro','=',$data->area_id)->first();
 
-            return view('empleados.upd_revista',compact('agente','data','revista','sub','cargo_sub','area','conceptos','reloj'));
+            return view('empleados.upd_revista',compact('agente','data','revista','sub','cargo_sub','area','conceptos','reloj','subroga'));
         }
 
-        return view('empleados.revista',compact('agente','revista','sub','cargo_sub','area','conceptos','reloj'));
+        return view('empleados.revista',compact('agente','revista','sub','cargo_sub','area','conceptos','reloj','subroga'));
     }
 
     public function srevista(Request  $request){
@@ -319,6 +322,11 @@ class EmpleadosController extends Controller
         $revista = Revista::find($agente->SITREV)->nombre;
         $data = CargoRevista::where('empleado_id','=',$id)->first();
 
+        $area = Area::where('are_nro','=',$data->area_id)->first();
+
+        $reloj = Reloj::where('CODIGO','=',$data->reloj_id)->first();
+
+
 
         //subroga
         $sub = $this->checkSubr($agente);
@@ -330,8 +338,7 @@ class EmpleadosController extends Controller
 
         $fecha = Carbon::now();
 
-        $view = \View::make('empleados.print', compact('agente','fecha','salud','personal','familiares', 'revista','data','sub','formacion','titulo'))
-                                                ->render();
+        $view = \View::make('empleados.print', compact('reloj','area','agente','fecha','salud','personal','familiares', 'revista','data','sub','formacion','titulo'))->render();
         $pdf = \App::make('dompdf.wrapper');
 
         $pdf->loadHTML($view);

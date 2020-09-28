@@ -70,14 +70,17 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <div class="callout callout-info">
-                                                <h5>Subrogancia</h5>
-                                                <p>Subroga: <strong>{{ $sub }}</strong></p>
-                                                @if($agente->CPTO20)
-                                                    <p>TIENE COMPENSACIÓN TÉCNICA: GRUPO {{ $agente->GRUPO }}</p>
-                                                @endif
-                                                <h5>Cargo de base</h5>
-                                                <p>Lugar de trabajo: {{ $agente->DENARE }}</p>
+                                        <div class="callout callout-info">
+                                                        <h5>Cargo de base: {{ $agente->GRUPO }}</h5>
+                                                        @if($agente->GRCJER)
+                                                            <p>TIENE COMPENSACIÓN JERARQUICA: GRUPO {{ $agente->GRCJER }}</p>
+                                                        @endif
+                                                        @if($agente->GRCTEC)
+                                                            <p>TIENE COMPENSACIÓN TÉCNICA: GRUPO {{ $agente->GRCTEC }}</p>
+                                                        @endif
+                                                        <p>Lugar de trabajo: {{ $agente->DENARE }}</p>
+                                                        <h5>Subrogancia</h5>
+                                                        <p>Subroga: <strong>{{ $subroga }}</strong></p>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">

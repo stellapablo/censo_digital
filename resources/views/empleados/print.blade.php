@@ -27,8 +27,8 @@
             <li>Frecuencia Respiratoria:  {{ $salud->frecuencia_respiratoria }}</li>
             <li>Temperatura:  {{ $salud->temperatura }}</li>
             <li>Altura: {{ $salud->altura }} - Peso: {{ $salud->peso }} <strong>Índice de Masa corporal: </strong> {{ indice_muscular($salud->peso,$salud->altura) }}</li>
-            <li>Hipertension: {{ $salud->hipertension }}</li>
-            <li>Diabetes: {{ $salud->diabetes }}</li>
+            <li>Hipertension: {{ tilde($salud->hipertension) }}</li>
+            <li>Diabetes: {{ tilde($salud->diabetes) }}</li>
             <li>Antecedente enfermedades agudas: {{ tilde($salud->agudas) }}</li>
             <li>Tiene vacuna Anti-tetanica: {{ tilde($salud->antitetanica) }}</li>
             <li>Tiene vacuna Hep. A: {{ tilde($salud->hepa) }}</li>
@@ -49,7 +49,15 @@
         <ul class="clearfix">
             <li>Apelido y Nombre: {{ $agente->APYNOM }}</li>
             <li>DNI: {{ $agente->DOCUME }}</li>
-            <li>Fecha de Nacimiento: {{ $agente->FECNAC }}</li>
+            <li>Fecha de Nacimiento: {{ $personal->fecha_nac }}</li>
+
+            <li>Celular: {{ $personal->celular }}</li>
+            <li>Tel. emergencia: {{ $personal->tel_emergencia }}</li>
+            <li>Tel. Fijo: {{ $personal->tel_fijo }}</li>
+
+
+            <li>Direccion: {{ $personal->calle }} {{ $personal->altura }} {{ $personal->manzana }}<</li>
+            <li>Email: {{ $personal->email }} <</li>
             <li>Estado Civil: {{ getEstado($personal->estado_civil) }}</li>
             <li>Permiso para conducir: {{ $personal->permiso }}</li>
             <li>Sexo: {{ $personal->sexo }}</li>
@@ -82,14 +90,12 @@
             <h4>Situación actual</h4>
 
             <li>Subroga: {{ $sub }}</li>
-            <li>Lugar de trabajo: {{ $agente->DENARE}}</li>
-
-            <h4>CONCEPTOS Y LIQUIDACIONES</h4>
-            <li>[CONCEPTOS 1]</li>
 
             <p>Datos que no se encuentran en sistema, pero son declarados por el Agente.</p>
-            <li>Subroga en: {{ $data->subroga_en }}</li>
-            <li>Lugar fisico de trabajo: {{ $data->trabaja_en }}</li>
+            <li>Area: {{ $area->nombre }}</li>
+
+            <li>Lugar fisico de trabajo: {{ $reloj->LUGAR }}</li>
+            
             <li>Horario de trabajo: Mañana: {{ tilde($data->mañana) }} / Tarde: {{ tilde($data->tarde) }} / Noche: {{ tilde($data->noche) }}</li>
 
             <h4>FORMACION</h4>
