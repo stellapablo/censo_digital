@@ -23,7 +23,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <!-- general form elements disabled -->
                 <div class="card card-warning">
                     <div class="card-header">
@@ -31,6 +31,11 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
+                        @foreach ($errors->all() as $message)
+                            <div class="alert alert-danger">
+                                <span>{{ $message }}</span>
+                            </div>
+                        @endforeach
                         @if(Session::has('success'))
                             <div class="alert alert-success">
                                 {{Session::get('success')}}
@@ -39,7 +44,7 @@
                         <form action="{{ route('empleados.urevista') }}" method="POST" >
                             {{ csrf_field() }}
                             <div class="row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>Situacion de revista</label>
                                         <input type="hidden" name="empleado_id" value="{{$agente->nrouag}}"  class="form-control">
@@ -48,18 +53,18 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-3">
-                                    <div class="form-group">
-                                        <label>Percepción de haberes</label>
-                                        {!! Form::select('haberes', ['Si'=>'Si','No'=>'No'] ,  null, ['class' => 'form-control','autocomplete'=> 'off'])!!}
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Percepción de haberes</label>
+                                            {!! Form::select('haberes', [''=>'','Si'=>'Si','No'=>'No'] ,  $data->haberes, ['class' => 'form-control','autocomplete'=> 'off'])!!}
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <label>&nbsp;</label>
-                                        <input type="text" name="motivo" value="{{ $data->motivo }}" class="form-control" placeholder="Si no percibe, indique la razón">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>&nbsp;</label>
+                                            <input type="text" name="motivo" value="{{ $data->motivo }}" class="form-control" placeholder="Si no percibe, indique la razón">
+                                        </div>
                                     </div>
-                                </div>
                             </div>
 
                             <div class="card card-secondary">
@@ -98,10 +103,11 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Area:</label>
-                                                <input id="area_search" placeholder="Buscar Area" name="area" type="text" onfocus="this.value=''" value="{{ $area->nombre  }}" autocomplete="off" class="form-control">
+                                                <input id="area_search" placeholder="Buscar Area" name="area" type="text" onfocus="this.value=''" value="{{ $area->nombre }}" autocomplete="off" class="form-control">
                                                 <input id="area_nro" value="{{ $area->are_nro }}" placeholder="Buscar Area" name="area_id" type="hidden" class="form-control">
                                             </div>
                                             <div class="form-group">
+
                                                 <label>Lugar fisico de trabajo:</label>
                                                 {!! Form::select('reloj_id', $reloj ,  $data->reloj_id, ['class' => 'form-control','autocomplete'=> 'off'])!!}
                                             </div>

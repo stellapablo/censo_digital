@@ -8,5 +8,6 @@ class Area extends Model
 {
     protected $table = 'areas';
 
+    protected $fillable = ['are_nro','nombre'];
 
 }

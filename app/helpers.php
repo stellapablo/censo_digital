@@ -31,10 +31,10 @@ function indice_muscular($peso,$altura){
 
 function getEstado($estado){
 
-    if($estado = 1){
+    if($estado == 1){
         return "Soltero/a";
     }
-    if($estado = 2){
+    if($estado == 2){
         return "Casado/a";
     }
 

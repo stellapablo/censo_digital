@@ -62,7 +62,7 @@
             <li>Permiso para conducir: {{ $personal->permiso }}</li>
             <li>Sexo: {{ $personal->sexo }}</li>
             <li>La RESIDENCIA ACTUAL es la misma que en el DNI, pero distinta a la registrada en sistema: {{ tilde($personal->residencia) }}</li>
-            <li>Vive en pareja?: {{ tilde($personal->pareja) }}</li>
+            <li>Vive en pareja?: {{ $personal->pareja }} </li>
             <li>Cuántos hijos viven en su domicilio?: {{ $personal->hijos }}</li>
             <li>Hijos menores de 15 años: {{ $personal->menores }}</li>
             <li>Hijos mayores de 18: {{ $personal->mayores }}</li>
@@ -88,18 +88,33 @@
             <li>Percepción de haberes: {{ $data->haberes }}</li>
 
             <h4>Situación actual</h4>
+            <hr>
+            <h4>Cargo de base: {{ $agente->GRUPO }}</h4>
 
-            <li>Subroga: {{ $sub }}</li>
+            @if($agente->GRCJER)
+                <p>TIENE COMPENSACIÓN JERARQUICA: GRUPO {{ $agente->GRCJER }}</p>
+            @endif
+            @if($agente->GRCTEC)
+                <p>TIENE COMPENSACIÓN TÉCNICA: GRUPO {{ $agente->GRCTEC }}</p>
+            @endif
+            <p>Lugar de trabajo: {{ $agente->DENARE }}</p>
+            <p>Subroga: <strong> @if($agente->SUBRGR == 0) {{ "NO" }} @else {{ "SI" }} @endif </strong></p>
 
             <p>Datos que no se encuentran en sistema, pero son declarados por el Agente.</p>
-            <li>Area: {{ $area->nombre }}</li>
+            <li><strong>Area:</strong> @if($area->nombre != 'Otra Area') {{ $area->nombre }} @endif
+                      @if($data->area_nueva) {{ $data->area_nueva }} @endif
+            </li>
 
-            <li>Lugar fisico de trabajo: {{ $reloj->LUGAR }}</li>
-            
+            <li><strong>Lugar fisico de trabajo:</strong> @if($reloj->LUGAR != 'Otro Lugar') {{ $reloj->LUGAR }} @endif
+                                         @if($data->reloj_nuevo) {{ $data->reloj_nuevo }} @endif
+
+
             <li>Horario de trabajo: Mañana: {{ tilde($data->mañana) }} / Tarde: {{ tilde($data->tarde) }} / Noche: {{ tilde($data->noche) }}</li>
-
+            <hr>
             <h4>FORMACION</h4>
             <li>DECLARADO: {{ $titulo->Carrera }}</li>
+
+            <hr>
 
             @foreach($formacion as $row)
                 <li><strong>TITULO:</strong> {{ $row->nombre }} <strong>FORMACION:</strong> {{ $row->nivel_id }} <strong>NIVEL:</strong> {{ $row->formacion_id }}</li>
