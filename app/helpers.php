@@ -44,5 +44,6 @@ function getEstado($estado){
         return "Viudo/a";
     }
 
-    return "Concubino/a";
+    return "Divorciado/a";
 }
+

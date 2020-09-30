@@ -89,7 +89,7 @@
                                                 <!-- <h5 class="mt-4 mb-2">Enfermedades</h5> -->
                                                 <div class="custom-control custom-checkbox">
                                                     <input class="custom-control-input" name="residencia" type="checkbox" id="customCheckbox1">
-                                                    <label for="customCheckbox1" class="custom-control-label">La RESIDENCIA ACTUAL es la misma que en el DNI<label>
+                                                    <label for="customCheckbox1" class="custom-control-label">La dirección que figura en el DNI es su residencia actual y es diferente a la registrada en el sistema actual<label>
                                                 </div>
                                             </div>
                                         </div>

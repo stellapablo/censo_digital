@@ -76,12 +76,75 @@ class EmpleadosController extends Controller
 
     public function usalud(CreateSaludFormRequest $request){
 
-        $data = $request->all();
-        $salud = Salud::where('empleado_id','=',$request->empleado_id)->first();
-        $salud->fill($data)->save();
+        $check = $this->checkSalud($request);
+
+        $salud = Salud::where('empleado_id', '=', $request->empleado_id)->update([
+            'frecuencia_cardiaca' => $request->frecuencia_cardiaca,
+            'frecuencia_respiratoria' => $request->frecuencia_respiratoria,
+            'temperatura' => $request->temperatura,
+            'altura' => $request->altura,
+            'peso' => $request->peso,
+            'hipertension' => $check[0],
+            'diabetes' => $check[1],
+            'agudas' => $check[2],
+            'def_auditivas' => $check[3],
+            'def_visual' => $check[4],
+            'discapacidad' => $check[5],
+            'preocupacional' => $check[6],
+            'consulta' => $check[7],
+            'sistole' => $request->sistole,
+            'diastole' => $request->diastole,
+            'observaciones' => $request->observaciones,]);
+
 
         return redirect()->route('empleados')->withSuccess('Datos Actualizados correctamente');
 
+    }
+
+    public function checkSalud(Request  $request){
+
+        if (!isset($request->hipertension)) {
+            $check[0] = null;
+        } else {
+            $check[0] = 'on';
+        }
+        if (!isset($request->diabetes)) {
+            $check[1] = null;
+        } else {
+            $check[1] = 'on';
+        }
+        if (!isset($request->agudas)) {
+            $check[2] = null;
+        } else {
+            $check[2] = 'on';
+        }
+        if (!isset($request->def_auditivas)) {
+            $check[3] = null;
+        } else {
+            $check[3] = 'on';
+        }
+        if (!isset($request->def_visual)) {
+            $check[4] = null;
+        } else {
+            $check[4] = 'on';
+        }
+        if (!isset($request->discapacidad)) {
+            $check[5] = null;
+        } else {
+            $check[5] = 'on';
+        }
+        if (!isset($request->preocupacional)) {
+            $check[6] = null;
+        } else {
+            $check[6] = 'on';
+        }
+        if (!isset($request->consulta)) {
+            $check[7] = null;
+        } else {
+            $check[7] = 'on';
+        }
+
+        return $check;
     }
 
 
@@ -113,14 +176,67 @@ class EmpleadosController extends Controller
     //update datos personales
     public function upersonal(Request $request){
 
-        $data = $request->all();
+        $check = $this->checkPersonal($request);
 
-        $personal = Personal::where('empleado_id','=',$request->empleado_id)->first();
-        $personal->fill($data)->save();
+        $personal = Personal::where('empleado_id','=',$request->empleado_id)
+                    ->update(['fecha_nac'=> $request->fecha_nac,
+                            'estado_civil'=> $request->estado_civil,
+                            'permiso'=> $request->permiso,
+                            'sexo'=> $request->sexo,
+                            'calle'=> $request->calle,
+                            'altura'=> $request->altura,
+                            'manzana'=> $request->manzana,
+                            'parcela'=> $request->parcela,
+                            'piso'=> $request->piso,
+                            'dpto'=> $request->dpto,
+                            'barrio'=> $request->barrio,
+                            'localidad'=> $request->localidad,
+                            'celular'=> $request->celular,
+                            'tel_fijo'=> $request->tel_fijo,
+                            'email'=> $request->email,
+                            'tel_emergencia'=> $request->tel_emergencia,
+                            'pareja'=> $request->pareja,
+                            'hijos'=> $request->hijos,
+                            'menores'=> $request->menores,
+                            'mayores'=> $request->mayores,
+                            'fliares_cargo'=> $check[0],
+                            'poliza'=> $check[1],
+                            'obra_social'=> $check[2],
+                            'residencia'=> $check[3],
+        ]);
+
 
         return redirect()->route('empleados')->withSuccess('Datos Actualizados correctamente');
 
     }
+
+    public function checkPersonal(Request  $request){
+
+        if (!isset($request->fliares_cargo)) {
+            $check[0] = null;
+        } else {
+            $check[0] = 'on';
+        }
+        if (!isset($request->poliza)) {
+            $check[1] = null;
+        } else {
+            $check[1] = 'on';
+        }
+        if (!isset($request->obra_social)) {
+            $check[2] = null;
+        } else {
+            $check[2] = 'on';
+        }
+        if (!isset($request->residencia)) {
+            $check[3] = null;
+        } else {
+            $check[3] = 'on';
+        }
+
+        return $check;
+    }
+
+
 
 
     public function biometrico($id){

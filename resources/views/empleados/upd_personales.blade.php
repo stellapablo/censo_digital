@@ -86,7 +86,7 @@
                                                     @else
                                                         <input class="custom-control-input" name="residencia" type="checkbox" id="customCheckbox1" >
                                                     @endif
-                                                    <label for="customCheckbox1" class="custom-control-label">La RESIDENCIA ACTUAL es la misma que en el DNI</label>
+                                                    <label for="customCheckbox1" class="custom-control-label">La dirección que figura en el DNI es su residencia actual y es diferente a la registrada en el sistema actual</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -249,7 +249,7 @@
                                         <div class="custom-control custom-checkbox">
 
                                             @if($data->poliza)
-                                                <input class="custom-control-input" name="poliza" type="checkbox" id="customCheckbox1" checked>
+                                                <input class="custom-control-input" name="poliza" type="checkbox" id="customCheckbox2" checked>
                                             @else
                                                 <input class="custom-control-input" name="poliza" type="checkbox" id="customCheckbox2" >
                                             @endif
