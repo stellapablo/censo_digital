@@ -50,7 +50,7 @@
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>Estado Civil</label>
-                                        {!! Form::select('estado_civil', [''=>'','1'=>'Soltero/a','2'=>'Casado/a','3'=>'Concubino/a'] ,  $data->estado_civil, ['class' => 'form-control','autocomplete'=> 'off'])!!}
+                                        {!! Form::select('estado_civil', [''=>'','1'=>'Soltero/a','2'=>'Casado/a','3'=>'Concubino/a', '4'=>'Viudo/a', '5'=>'Divorciado/a'] ,  $data->estado_civil, ['class' => 'form-control','autocomplete'=> 'off'])!!}
                                     </div>
                                 </div>
                             </div>
@@ -58,7 +58,7 @@
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>Permiso para conducir</label>
-                                        {!! Form::select('permiso', [''=>'','1'=>'Si','2'=>'No'] ,  $data->permiso, ['class' => 'form-control','autocomplete'=> 'off'])!!}
+                                        {!! Form::select('permiso', [''=>'','Si'=>'Si','No'=>'No'] ,  $data->permiso, ['class' => 'form-control','autocomplete'=> 'off'])!!}
                                     </div>
                                 </div>
                                 <div class="col-sm-4">

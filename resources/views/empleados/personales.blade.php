@@ -49,7 +49,7 @@
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>Estado Civil</label>
-                                        {!! Form::select('estado_civil', [''=>'','1'=>'Soltero/a','2'=>'Casado/a','3'=>'Concubino/a'] ,  null, ['class' => 'form-control','autocomplete'=> 'off'])!!}
+                                        {!! Form::select('estado_civil', [''=>'','1'=>'Soltero/a','2'=>'Casado/a','3'=>'Concubino/a', '4'=>'Viudo/a', '5'=>'Divorciado/a'] ,  null, ['class' => 'form-control','autocomplete'=> 'off'])!!}
                                     </div>
                                 </div>
                             </div>
@@ -210,7 +210,7 @@
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
-                                                <label>Hijos mayores de 18?</label>
+                                                <label>Hijos mayores de 15</label>
                                                 <input type="text" name="mayores" data-mask="00" class="form-control" placeholder="Enter ...">
                                             </div>
                                         </div>

@@ -21,7 +21,7 @@ class AgentesController extends Controller
         //$agentes = Agente::select('id','APYNOM','DOCUME','DENARE','FECNAC','FECING')->get();
 
         $current = Carbon::now();
-        $current = Carbon::createFromDate(2020, 9, 28);
+        $current = Carbon::createFromDate(2020, 9, 29);
 
 
         $agentes = Agente::select('id','NROUAG','APYNOM','FECING','posta1','posta2','posta3','posta4','DOCUME','posta5','turno')
@@ -63,6 +63,8 @@ class AgentesController extends Controller
             ->addColumn('action', function ($agentes) {
                 return '
                 <a onclick="return confirm(\'Está seguro que desea agregar al turno actual?\')" href="/empleados/agregar/'.$agentes->NROUAG.'" class="btn btn-xs btn-success"><i class="fas fa-file-archive"></i>  Agregar al turno</a>
+                <a onclick="return confirm(\'Está seguro que desea eliminar al turno actual?\')" href="/empleados/eliminar/'.$agentes->NROUAG.'" class="btn btn-xs btn-danger"><i class="fas fa-file-archive"></i>  Quitar del turno</a>
+
                 ';
             })
             ->editColumn('id', '{{$id}}')

@@ -9,6 +9,7 @@ use App\Cargo;
 use App\CargoRevista;
 use App\Familia;
 use App\Http\Requests\CreateSaludFormRequest;
+use App\Http\Requests\RevistaFormRequest;
 use App\Invoice;
 use App\InvoiceDetail;
 use App\Licencia;
@@ -232,7 +233,9 @@ class EmpleadosController extends Controller
 
         $agente = Agente::where('nrouag','=',$id)->first();
 
+
         $revista = Revista::find($agente->SITREV)->nombre;
+
 
         $reloj = ['' => ''] + Reloj::orderBy('LUGAR')->pluck('LUGAR','CODIGO')->all();
 
@@ -252,7 +255,6 @@ class EmpleadosController extends Controller
             $area = Area::where('are_nro','=','99999999')->first();
         }
 
-
         if($data != null ){
 
             $area = Area::where('are_nro','=',$data->area_id)->first();
@@ -263,7 +265,7 @@ class EmpleadosController extends Controller
         return view('empleados.revista',compact('agente','revista','sub','cargo_sub','area','conceptos','reloj','subroga'));
     }
 
-    public function srevista(Request  $request){
+    public function srevista(RevistaFormRequest  $request){
 
         Agente::where('NROUAG','=',$request->empleado_id)->update(['posta3'=>$this->posta]);
 
@@ -272,7 +274,7 @@ class EmpleadosController extends Controller
         return redirect()->route('empleados')->withSuccess('Datos Actualizados correctamente');
     }
 
-    public function urevista(Request  $request){
+    public function urevista(RevistaFormRequest  $request){
 
         $data = $request->all();
 
@@ -503,11 +505,11 @@ class EmpleadosController extends Controller
                     ->join('turnos', 'agentes.NROUAG', '=', 'turnos.nrouag')
                     ->select('agentes.id','agentes.NROUAG', 'agentes.APYNOM', 'agentes.DOCUME', 'agentes.posta1', 'agentes.posta2','agentes.posta3',
                                      'agentes.posta4','agentes.posta5','turnos.fecha','turnos.hora')
-                    ->where('turnos.fecha','=','2020-09-28')
+                    ->where('turnos.fecha','=','2020-09-29')
                     ->get();
 
 
-        $current = Carbon::createFromDate(2020, 9, 28);
+        $current = Carbon::createFromDate(2020, 9, 29);
 
         foreach ($agentes as $item) {
 
