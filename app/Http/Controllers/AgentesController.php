@@ -63,7 +63,7 @@ class AgentesController extends Controller
             ->addColumn('action', function ($agentes) {
                 return '
                 <a onclick="return confirm(\'Está seguro que desea agregar al turno actual?\')" href="/empleados/agregar/'.$agentes->NROUAG.'" class="btn btn-xs btn-success"><i class="fas fa-file-archive"></i>  Agregar al turno</a>
-                <a onclick="return confirm(\'Está seguro que desea eliminar al turno actual?\')" href="/empleados/eliminar/'.$agentes->NROUAG.'" class="btn btn-xs btn-danger"><i class="fas fa-file-archive"></i>  Quitar del turno</a>
+                <a onclick="return confirm(\'Está seguro que desea quitar del turno actual?\')" href="/empleados/quitar/'.$agentes->NROUAG.'" class="btn btn-xs btn-danger"><i class="fas fa-file-archive"></i>  Quitar del turno</a>
 
                 ';
             })

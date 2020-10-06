@@ -68,7 +68,10 @@ class EmpleadosController extends Controller
 
         Agente::where('NROUAG','=',$request->empleado_id)->update(['posta1'=>$this->posta]);
 
-        Salud::create($request->all());
+        $salud = Salud::create($request->all());
+
+        Salud::where('id','=',$salud->id)->update(['user_id'=> auth()->user()->id]);
+
 
         return redirect()->route('empleados')->withSuccess('Datos Actualizados correctamente');
     }
@@ -94,7 +97,9 @@ class EmpleadosController extends Controller
             'consulta' => $check[7],
             'sistole' => $request->sistole,
             'diastole' => $request->diastole,
-            'observaciones' => $request->observaciones,]);
+            'observaciones' => $request->observaciones,
+            'user_id' => auth()->user()->id
+        ]);
 
 
         return redirect()->route('empleados')->withSuccess('Datos Actualizados correctamente');
@@ -167,7 +172,9 @@ class EmpleadosController extends Controller
 
         Agente::where('NROUAG','=',$request->empleado_id)->update(['posta2'=>$this->posta]);
 
-        Personal::create($request->all());
+        $personal = Personal::create($request->all());
+
+        Personal::where('id','=',$personal->id)->update(['user_id'=> auth()->user()->id]);
 
         return redirect()->route('empleados')->withSuccess('Datos Actualizados correctamente');
 
@@ -203,7 +210,9 @@ class EmpleadosController extends Controller
                             'poliza'=> $check[1],
                             'obra_social'=> $check[2],
                             'residencia'=> $check[3],
-        ]);
+                            'user_id' => auth()->user()->id
+
+                    ]);
 
 
         return redirect()->route('empleados')->withSuccess('Datos Actualizados correctamente');
@@ -235,8 +244,6 @@ class EmpleadosController extends Controller
 
         return $check;
     }
-
-
 
 
     public function biometrico($id){
@@ -385,7 +392,9 @@ class EmpleadosController extends Controller
 
         Agente::where('NROUAG','=',$request->empleado_id)->update(['posta3'=>$this->posta]);
 
-        CargoRevista::create($request->all());
+        $cargo = CargoRevista::create($request->all());
+        CargoRevista::where('id','=',$cargo->id)->update(['user_id'=> auth()->user()->id]);
+
 
         return redirect()->route('empleados')->withSuccess('Datos Actualizados correctamente');
     }
@@ -395,6 +404,7 @@ class EmpleadosController extends Controller
         $data = $request->all();
 
         $personal = CargoRevista::where('empleado_id','=',$request->empleado_id)->first();
+        $personal->user_id = auth()->user()->id;
         $personal->fill($data)->save();
 
         return redirect()->route('empleados')->withSuccess('Datos Actualizados correctamente');
@@ -446,6 +456,7 @@ class EmpleadosController extends Controller
 
 
 
+
         //subroga
         $sub = $this->checkSubr($agente);
 
@@ -455,6 +466,8 @@ class EmpleadosController extends Controller
 
 
         $fecha = Carbon::now();
+
+        Agente::where('NROUAG','=',$id)->update(['print'=> $fecha->format('Y-m-d H:i:s')]);
 
         $view = \View::make('empleados.print', compact('reloj','area','agente','fecha','salud','personal','familiares', 'revista','data','sub','formacion','titulo'))->render();
         $pdf = \App::make('dompdf.wrapper');
@@ -644,6 +657,15 @@ class EmpleadosController extends Controller
         $agente->save();
 
         return redirect()->route('empleados')->withSuccess('Agente actualizado al turno');
+    }
+
+    public function deleteTurno($id){
+
+        $agente = Agente::where('NROUAG','=',$id)->first();
+        $agente->turno = null;
+        $agente->save();
+
+        return redirect()->route('empleados')->withSuccess('Agente eliminado del turno');
     }
 
 }

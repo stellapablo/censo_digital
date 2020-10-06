@@ -600,6 +600,7 @@ class ComposerStaticInit00cac5469831c9b1caddfa652d128735
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\CreateSaludFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CreateSaludFormRequest.php',
+        'App\\Http\\Requests\\RevistaFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/RevistaFormRequest.php',
         'App\\Licencia' => __DIR__ . '/../..' . '/app/Licencia.php',
         'App\\Personal' => __DIR__ . '/../..' . '/app/Personal.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',

@@ -10,7 +10,8 @@ class Agente extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['APYNOM','turno','DOCUME','CUILAG','AREA','DENARE','DOMICI','SEXOARG','EDADAG','FECNAC','FECING','GRUPO','AREITE','posta1','posta2','posta3','posta4','posta5','NROUAG'];
+    protected $fillable = ['APYNOM','turno','DOCUME','CUILAG','AREA','DENARE','DOMICI','SEXOARG','EDADAG','FECNAC','FECING','GRUPO','AREITE','posta1','posta2','posta3',
+        'posta4','posta5','NROUAG','print'];
 
 
     public function salud(){

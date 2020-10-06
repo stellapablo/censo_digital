@@ -38,6 +38,7 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\CreateSaludFormRequest' => $baseDir . '/app/Http/Requests/CreateSaludFormRequest.php',
+    'App\\Http\\Requests\\RevistaFormRequest' => $baseDir . '/app/Http/Requests/RevistaFormRequest.php',
     'App\\Licencia' => $baseDir . '/app/Licencia.php',
     'App\\Personal' => $baseDir . '/app/Personal.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
