@@ -262,6 +262,12 @@ return [
             'icon'        => 'far fa-fw fa-user',
             'label_color' => 'success',
         ],
+        [
+            'text'        => ' Exportar',
+            'url'         => 'empleados/exportar',
+            'icon'        => 'fas fa-fw fa-chart-pie',
+            'label_color' => 'success',
+        ],
         ['header' => 'labels'],
         [
             'text'       => 'important',

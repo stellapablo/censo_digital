@@ -7,6 +7,7 @@ use App\Area;
 use App\Biometria;
 use App\Cargo;
 use App\CargoRevista;
+use App\Exports\AgentesExport;
 use App\Familia;
 use App\Http\Requests\CreateSaludFormRequest;
 use App\Http\Requests\RevistaFormRequest;
@@ -28,6 +29,8 @@ use File;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class EmpleadosController extends Controller
 {
@@ -666,6 +669,34 @@ class EmpleadosController extends Controller
         $agente->save();
 
         return redirect()->route('empleados')->withSuccess('Agente eliminado del turno');
+    }
+
+    public function getCensados(){
+
+        $agentes = Agente::all();
+
+        foreach($agentes as $row){
+
+            $formacion = Cargo::where('empleado_id','=',$row->nrouag)->first();
+
+            if($formacion != NULL){
+                $row->print = $formacion->created_at;
+                $row->save();
+            }
+
+        }
+
+    }
+
+    public function export()
+    {
+        if(auth()->user()->id == 1){
+            return Excel::download(new AgentesExport, 'censados.xlsx');
+        }else{
+            return redirect()->route('empleados')->withSuccess('No tiene permisos para generar Informes');
+
+        }
+
     }
 
 }

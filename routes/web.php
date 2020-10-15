@@ -31,6 +31,10 @@ Route::get('dashboard', 'HomeController@dashboard')->name('dashboard');
 Route::prefix('empleados')->group(function () {
     Route::get('/', 'AgentesController@index')->name('empleados');
 
+    //censados
+    Route::get('censados', 'EmpleadosController@getCensados')->name('censados');
+    Route::get('exportar', 'EmpleadosController@export')->name('export');
+
     Route::get('nomina', 'AgentesController@nomina')->name('nomina');
 
     Route::get('agregar/{id}', 'EmpleadosController@addTurno')->name('agregar');

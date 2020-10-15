@@ -21,7 +21,7 @@ class AgentesController extends Controller
         //$agentes = Agente::select('id','APYNOM','DOCUME','DENARE','FECNAC','FECING')->get();
 
         $current = Carbon::now();
-        $current = Carbon::createFromDate(2020, 9, 29);
+        $current = Carbon::createFromDate(2020, 9, 25);
 
 
         $agentes = Agente::select('id','NROUAG','APYNOM','FECING','posta1','posta2','posta3','posta4','DOCUME','posta5','turno')
